@@ -28,11 +28,11 @@
 		</conditions>
 		<effects>
 			<effect name="DispelBySlotProbability">
-				<dispel>DANCE_OF_BLADESTORM;SONG_OF_CHAMPION;SONG_OF_EARTH;SONG_OF_HUNTER;SONG_OF_LIFE;SONG_OF_MEDITATION;SONG_OF_RENEWAL;SONG_OF_VENGEANCE;SONG_OF_VITALITY;SONG_OF_WARDING;SONG_OF_WATER;SONG_OF_WIND;DANCE_OF_BERSERKER;DANCE_OF_CONCENTRATION;DANCE_OF_FIRE;DANCE_OF_FURY;DANCE_OF_INSPIRATION;DANCE_OF_MYSTIC;DANCE_OF_SIREN;DANCE_OF_VAMPIRE;DANCE_OF_WARRIOR;SONG_OF_PURIFICATION;WISPERING_OF_BATTLE;SONG_OF_WINDSTORM;MOTION_OF_DEFENCE;INSTINCT;BERSERKER;PA_PD_UP;IMPROVE_SHIELD_RATE_DEFENCE_UP;SHIELD_PROB_UP;SHIELD_DEFENCE_UP;CANCEL_PROB_DOWN;MA_UP_SPECIAL;MULTI_BUFF</dispel>
+				<dispel>MULTI_BUFF;DANCE_OF_BLADESTORM;SONG_OF_CHAMPION;SONG_OF_EARTH;SONG_OF_HUNTER;SONG_OF_LIFE;SONG_OF_MEDITATION;SONG_OF_RENEWAL;SONG_OF_VENGEANCE;SONG_OF_VITALITY;SONG_OF_WARDING;SONG_OF_WATER;SONG_OF_WIND;DANCE_OF_BERSERKER;DANCE_OF_CONCENTRATION;DANCE_OF_FIRE;DANCE_OF_FURY;DANCE_OF_INSPIRATION;DANCE_OF_MYSTIC;DANCE_OF_SIREN;DANCE_OF_VAMPIRE;DANCE_OF_WARRIOR;SONG_OF_PURIFICATION;WISPERING_OF_BATTLE;SONG_OF_WINDSTORM;MOTION_OF_DEFENCE;INSTINCT;BERSERKER;PA_PD_UP;IMPROVE_SHIELD_RATE_DEFENCE_UP;SHIELD_PROB_UP;SHIELD_DEFENCE_UP;CANCEL_PROB_DOWN;MA_UP_SPECIAL</dispel>
 				<rate>100</rate>
 			</effect>
 			<effect name="BlockAbnormalSlot">
-				<slot>DANCE_OF_BLADESTORM;SONG_OF_CHAMPION;SONG_OF_EARTH;SONG_OF_HUNTER;SONG_OF_LIFE;SONG_OF_MEDITATION;SONG_OF_RENEWAL;SONG_OF_VENGEANCE;SONG_OF_VITALITY;SONG_OF_WARDING;SONG_OF_WATER;SONG_OF_WIND;DANCE_OF_BERSERKER;DANCE_OF_CONCENTRATION;DANCE_OF_FIRE;DANCE_OF_FURY;DANCE_OF_INSPIRATION;DANCE_OF_MYSTIC;DANCE_OF_SIREN;DANCE_OF_VAMPIRE;DANCE_OF_WARRIOR;SONG_OF_PURIFICATION;WISPERING_OF_BATTLE;SONG_OF_WINDSTORM;MOTION_OF_DEFENCE;INSTINCT;BERSERKER;PA_PD_UP;IMPROVE_SHIELD_RATE_DEFENCE_UP;SHIELD_PROB_UP;SHIELD_DEFENCE_UP;CANCEL_PROB_DOWN;MA_UP_SPECIAL;MULTI_BUFF</slot>
+				<slot>MULTI_BUFF;DANCE_OF_BLADESTORM;SONG_OF_CHAMPION;SONG_OF_EARTH;SONG_OF_HUNTER;SONG_OF_LIFE;SONG_OF_MEDITATION;SONG_OF_RENEWAL;SONG_OF_VENGEANCE;SONG_OF_VITALITY;SONG_OF_WARDING;SONG_OF_WATER;SONG_OF_WIND;DANCE_OF_BERSERKER;DANCE_OF_CONCENTRATION;DANCE_OF_FIRE;DANCE_OF_FURY;DANCE_OF_INSPIRATION;DANCE_OF_MYSTIC;DANCE_OF_SIREN;DANCE_OF_VAMPIRE;DANCE_OF_WARRIOR;SONG_OF_PURIFICATION;WISPERING_OF_BATTLE;SONG_OF_WINDSTORM;MOTION_OF_DEFENCE;INSTINCT;BERSERKER;PA_PD_UP;IMPROVE_SHIELD_RATE_DEFENCE_UP;SHIELD_PROB_UP;SHIELD_DEFENCE_UP;CANCEL_PROB_DOWN;MA_UP_SPECIAL</slot>
 			</effect>
 			<effect name="PAtk">
 				<amount>22</amount>
@@ -280,7 +280,7 @@
 		<!-- Immune to damage caused by Soul Bomber. Cannot receive other Invincibility effects. -->
 		<icon>icon.skill11758</icon>
 		<operateType>A1</operateType>
-		<isMagic>7</isMagic>
+		<isMagic>1</isMagic>
 		<effectPoint>867</effectPoint>
 	</skill>
 	<skill id="19525" toLevel="1" name="Resonant Halo">
@@ -918,6 +918,7 @@
 		<itemConsumeCount>2000</itemConsumeCount>
 		<itemConsumeId>3031</itemConsumeId>
 		<conditions>
+			<condition name="CanUseInBattlefield" />
 			<condition name="OpCanNotUseAirship" />
 			<condition name="OpSocialClass">
 				<socialClass>8</socialClass>
@@ -945,6 +946,7 @@
 		<itemConsumeCount>2000</itemConsumeCount>
 		<itemConsumeId>3031</itemConsumeId>
 		<conditions>
+			<condition name="CanUseInBattlefield" />
 			<condition name="OpCanNotUseAirship" />
 			<condition name="OpSocialClass">
 				<socialClass>8</socialClass>
@@ -972,6 +974,7 @@
 		<itemConsumeCount>2000</itemConsumeCount>
 		<itemConsumeId>3031</itemConsumeId>
 		<conditions>
+			<condition name="CanUseInBattlefield" />
 			<condition name="OpCanNotUseAirship" />
 			<condition name="OpSocialClass">
 				<socialClass>8</socialClass>
@@ -999,6 +1002,7 @@
 		<itemConsumeCount>2000</itemConsumeCount>
 		<itemConsumeId>3031</itemConsumeId>
 		<conditions>
+			<condition name="CanUseInBattlefield" />
 			<condition name="OpCanNotUseAirship" />
 			<condition name="OpSocialClass">
 				<socialClass>8</socialClass>
@@ -1846,6 +1850,9 @@
 		<!-- For 10 sec., P. Def. +50% and reflects damage when hit. Cannot be applied together with any Shield Block skill. -->
 		<icon>icon.skill3584</icon>
 		<operateType>A2</operateType>
+		<abnormalLvl>1</abnormalLvl>
+		<abnormalTime>10</abnormalTime>
+		<abnormalType>DMG_SHIELD</abnormalType>
 		<effectPoint>379</effectPoint>
 		<basicProperty>NONE</basicProperty>
 		<magicCriticalRate>5</magicCriticalRate>
@@ -1853,10 +1860,6 @@
 		<isMagic>1</isMagic>
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
-		<reuseDelay>60000</reuseDelay>
-		<abnormalLvl>1</abnormalLvl>
-		<abnormalTime>10</abnormalTime>
-		<abnormalType>DMG_SHIELD</abnormalType>
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<attackerType>Creature</attackerType>
@@ -1901,7 +1904,7 @@
 		</effects>
 	</skill>
 	<skill id="19566" toLevel="4" name="Grand Shillien Shadow">
-		<!-- P. Atk. +$s1, Shield Def. +$s2, and Attack Attribute +$s3, and activates Shillien Shadow on the caster. $s4 chance to activate Shilen's Presence on allies. -->
+		<!-- P. Atk. +2%, Shield Def. +5%, and Attack Attribute +15, and activates Shillien Shadow on the caster. 6% chance to activate Shilen's Presence on allies. -->
 		<icon>icon.skill19560</icon>
 		<operateType>P</operateType>
 		<mpConsume>8</mpConsume>
@@ -1912,7 +1915,7 @@
 			<value level="4">99</value>
 		</magicLvl>
 		<effects>
-		<effect name="TriggerSkillByDamage">
+			<effect name="TriggerSkillByDamage">
 				<attackerType>Creature</attackerType>
 				<minAttackerLevel>1</minAttackerLevel>
 				<maxAttackerLevel>127</maxAttackerLevel>
@@ -1927,7 +1930,7 @@
 				<attackerType>Creature</attackerType>
 				<minAttackerLevel>1</minAttackerLevel>
 				<maxAttackerLevel>127</maxAttackerLevel>
-				<chance>30</chance>
+				<chance>6</chance>
 				<targetType>MY_PARTY</targetType>
 				<minDamage>1</minDamage>
 				<allowWeapons>ALL</allowWeapons>

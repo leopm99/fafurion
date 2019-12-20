@@ -928,6 +928,22 @@
 		<icon>icon.m_class_heavy</icon>
 		<operateType>P</operateType>
 		<targetType>SELF</targetType>
+		<passiveConditions>
+			<condition name="OpCheckClassList">
+				<classIds>
+					<item>YUL_SAGITTARIUS</item>
+					<item>YUL_MOONLIGHT_SENTINEL</item>
+					<item>YUL_GHOST_SENTINEL</item>
+					<item>YUL_TRICKSTER</item>
+					<item>OTHELL_ADVENTURER</item>
+					<item>OTHELL_GHOST_HUNTER</item>
+					<item>OTHELL_WIND_RIDER</item>
+					<item>OTHELL_FORTUNE_SEEKER</item>
+				</classIds>
+				<affectType>CASTER</affectType>
+				<isWithin>false</isWithin>
+			</condition>
+		</passiveConditions>
 		<effects>
 			<effect name="PAtk">
 				<amount>
@@ -2319,42 +2335,144 @@
 		<icon>icon.accessory_earring_of_hero_i01</icon>
 		<operateType>P</operateType>
 		<targetType>SELF</targetType>
+		<effects>
+			<effect name="MaxMp">
+				<amount>49</amount>
+				<mode>DIFF</mode>
+			</effect>
+			<effect name="MaxCp">
+				<amount>10</amount>
+				<mode>PER</mode>
+			</effect>
+			<effect name="PhysicalDefence">
+				<amount>3</amount>
+				<mode>PER</mode>
+			</effect>
+			<effect name="MagicalDefence">
+				<amount>3</amount>
+				<mode>PER</mode>
+			</effect>
+			<effect name="VampiricAttack">
+				<amount>4</amount>
+				<chance>30</chance>
+			</effect>
+			<effect name="AttackTrait"> <!-- CONFUSION ATTACK -->
+				<AGGRESSION>30</AGGRESSION>
+				<SHOCK>30</SHOCK>
+				<AIRBIND>30</AIRBIND>
+				<KNOCKDOWN>30</KNOCKDOWN>
+				<KNOCKBACK>30</KNOCKBACK>
+				<KNOCKBACK>30</KNOCKBACK>
+				<PARALYZE>30</PARALYZE>
+				<PULL>30</PULL>
+			</effect>
+			<effect name="DefenceTrait"> <!-- CONFUSION RESISTANCE -->
+				<AGGRESSION>30</AGGRESSION>
+				<SHOCK>30</SHOCK>
+				<AIRBIND>30</AIRBIND>
+				<KNOCKDOWN>30</KNOCKDOWN>
+				<KNOCKBACK>30</KNOCKBACK>
+				<KNOCKBACK>30</KNOCKBACK>
+				<PARALYZE>30</PARALYZE>
+				<PULL>30</PULL>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="13964" toLevel="1" name="Bracelet of the Conqueror - CON">
 		<!-- Up to 5 Talismans can be equipped. Increases by up to 531 HP. CON +3 -->
 		<icon>icon.ertheia_bracelet_i01</icon>
 		<operateType>P</operateType>
 		<targetType>SELF</targetType>
+		<effects>
+			<effect name="MaxHp">
+				<amount>531</amount>
+				<mode>DIFF</mode>
+			</effect>
+			<effect name="StatUp">
+				<amount>3</amount>
+				<stat>CON</stat>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="13965" toLevel="1" name="Bracelet of the Conqueror - MEN">
 		<!-- Up to 5 Talismans can be equipped. Increases by up to 531 HP. MEN +3 -->
 		<icon>icon.ertheia_bracelet_i01</icon>
 		<operateType>P</operateType>
 		<targetType>SELF</targetType>
+		<effects>
+			<effect name="MaxHp">
+				<amount>531</amount>
+				<mode>DIFF</mode>
+			</effect>
+			<effect name="StatUp">
+				<amount>3</amount>
+				<stat>MEN</stat>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="13966" toLevel="1" name="Bracelet of the Conqueror - DEX">
 		<!-- Up to 5 Talismans can be equipped. Increases by up to 531 HP. DEX +3 -->
 		<icon>icon.ertheia_bracelet_i01</icon>
 		<operateType>P</operateType>
 		<targetType>SELF</targetType>
+		<effects>
+			<effect name="MaxHp">
+				<amount>531</amount>
+				<mode>DIFF</mode>
+			</effect>
+			<effect name="StatUp">
+				<amount>3</amount>
+				<stat>DEX</stat>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="13967" toLevel="1" name="Bracelet of the Conqueror - WIT">
 		<!-- Up to 5 Talismans can be equipped. Increases by up to 531 HP. WIT +3 -->
 		<icon>icon.ertheia_bracelet_i01</icon>
 		<operateType>P</operateType>
 		<targetType>SELF</targetType>
+		<effects>
+			<effect name="MaxHp">
+				<amount>531</amount>
+				<mode>DIFF</mode>
+			</effect>
+			<effect name="StatUp">
+				<amount>3</amount>
+				<stat>WIT</stat>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="13968" toLevel="1" name="Bracelet of the Conqueror - STR">
 		<!-- Up to 5 Talismans can be equipped. Increases by up to 531 HP. STR +3 -->
 		<icon>icon.ertheia_bracelet_i01</icon>
 		<operateType>P</operateType>
 		<targetType>SELF</targetType>
+		<effects>
+			<effect name="MaxHp">
+				<amount>531</amount>
+				<mode>DIFF</mode>
+			</effect>
+			<effect name="StatUp">
+				<amount>3</amount>
+				<stat>STR</stat>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="13969" toLevel="1" name="Bracelet of the Conqueror - INT">
 		<!-- Up to 5 Talismans can be equipped. Increases by up to 531 HP. INT +3 -->
 		<icon>icon.ertheia_bracelet_i01</icon>
 		<operateType>P</operateType>
 		<targetType>SELF</targetType>
+		<effects>
+			<effect name="MaxHp">
+				<amount>531</amount>
+				<mode>DIFF</mode>
+			</effect>
+			<effect name="StatUp">
+				<amount>3</amount>
+				<stat>INT</stat>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="13970" toLevel="10" name="Sayha's Talisman">
 		<!-- Receives a boosting effect for P. Defense by $s1, M. Def. by $s2, and Acquired XP/ SP by $s3. -->
@@ -2421,6 +2539,20 @@
 					<value level="10">30</value>
 				</amount>
 			</effect>
+			<effect name="AdditionalPotionHp">
+				<amount>
+					<value level="1">0</value>
+					<value level="2">0</value>
+					<value level="3">0</value>
+					<value level="4">0</value>
+					<value level="5">0</value>
+					<value level="6">0</value>
+					<value level="7">0</value>
+					<value level="8">0</value>
+					<value level="9">1000</value>
+					<value level="10">2000</value>
+				</amount>
+			</effect>
 		</effects>
 	</skill>
 	<skill id="13971" toLevel="4" name="Sayha's Trust">
@@ -2478,10 +2610,11 @@
 			<value level="3">icon.sayhas_talisman_g_Lv3</value>
 			<value level="4">icon.sayhas_talisman_g_Lv4</value>
 		</icon>
+		<abnormalType>TALISMAN_SPECIAL</abnormalType>
 		<abnormalLvl>1</abnormalLvl>
 		<abnormalTime>45</abnormalTime>
 		<operateType>A2</operateType>
-		<targetType>TARGET</targetType>
+		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
 		<hitTime>300</hitTime>
 		<coolTime>300</coolTime>
@@ -2523,10 +2656,11 @@
 			<value level="3">icon.sayhas_talisman_pve_Lv3</value>
 			<value level="4">icon.sayhas_talisman_pve_Lv4</value>
 		</icon>
+		<abnormalType>TALISMAN_SPECIAL</abnormalType>
 		<abnormalLvl>1</abnormalLvl>
 		<abnormalTime>45</abnormalTime>
 		<operateType>A2</operateType>
-		<targetType>TARGET</targetType>
+		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
 		<hitTime>300</hitTime>
 		<coolTime>300</coolTime>
@@ -2577,10 +2711,11 @@
 			<value level="3">icon.sayhas_talisman_pvp_Lv3</value>
 			<value level="4">icon.sayhas_talisman_pvp_Lv4</value>
 		</icon>
+		<abnormalType>TALISMAN_SPECIAL</abnormalType>
 		<abnormalLvl>1</abnormalLvl>
 		<abnormalTime>45</abnormalTime>
 		<operateType>A2</operateType>
-		<targetType>TARGET</targetType>
+		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
 		<hitTime>300</hitTime>
 		<coolTime>300</coolTime>

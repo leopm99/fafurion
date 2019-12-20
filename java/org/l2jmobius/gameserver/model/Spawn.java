@@ -97,7 +97,7 @@ public class Spawn extends Location implements IIdentifiable, INamable
 	 */
 	public Spawn(NpcTemplate template) throws SecurityException, ClassNotFoundException, NoSuchMethodException, ClassCastException
 	{
-		super(0, 0, 0);
+		super(0, 0, -10000);
 		// Set the _template of the Spawn
 		_template = template;
 		
@@ -122,7 +122,7 @@ public class Spawn extends Location implements IIdentifiable, INamable
 	 */
 	public Spawn(int npcId) throws SecurityException, ClassNotFoundException, NoSuchMethodException, ClassCastException
 	{
-		super(0, 0, 0);
+		super(0, 0, -10000);
 		_template = Objects.requireNonNull(NpcData.getInstance().getTemplate(npcId), "NpcTemplate not found for NPC ID: " + npcId);
 		
 		final String className = "org.l2jmobius.gameserver.model.actor.instance." + _template.getType() + "Instance";
@@ -361,7 +361,7 @@ public class Spawn extends Location implements IIdentifiable, INamable
 	{
 		int newlocx = 0;
 		int newlocy = 0;
-		int newlocz = 0;
+		int newlocz = -10000;
 		
 		// If Locx and Locy are not defined, the NpcInstance must be spawned in an area defined by location or spawn territory
 		// New method
@@ -441,6 +441,12 @@ public class Spawn extends Location implements IIdentifiable, INamable
 		
 		// Spawn NPC
 		npc.spawnMe(newlocx, newlocy, newlocz);
+		
+		// Make sure info is broadcasted in instances
+		if (npc.getInstanceId() > 0)
+		{
+			npc.broadcastInfo();
+		}
 		
 		if (_spawnTemplate != null)
 		{

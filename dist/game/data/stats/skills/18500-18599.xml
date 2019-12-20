@@ -123,36 +123,70 @@
 		<coolTime>500</coolTime>
 	</skill>
 	<skill id="18513" toLevel="1" name="Summon Flame Flower">
+		<icon>icon.skill0000</icon>
+		<itemConsumeCount>1</itemConsumeCount>
+		<itemConsumeId>46554</itemConsumeId> <!-- Flame Flower -->
 		<operateType>A1</operateType>
 		<hitTime>1500</hitTime>
 		<reuseDelay>3000</reuseDelay>
+		<magicCriticalRate>5</magicCriticalRate>
+		<hitCancelTime>0</hitCancelTime>
+		<targetType>SELF</targetType>
+		<affectScope>SINGLE</affectScope>
 	</skill>
 	<skill id="18514" toLevel="1" name="Seal Altar of Earth">
 		<!-- The seal of the ruler is engraved on the ancient relic protecting the fort. -->
 		<icon>icon.skill0246</icon>
 		<operateType>A1</operateType>
-		<coolTime>500</coolTime>
 		<mpConsume>10</mpConsume>
 		<castRange>100</castRange>
-		<hitTime>60000</hitTime>
+		<hitTime>120000</hitTime>
 		<reuseDelay>5000</reuseDelay>
 	</skill>
 	<skill id="18515" toLevel="3" name="Weakened Defense">
-		<!-- P./ M. Def. -10% -->
+		<!-- P./M. Def. is decreased by Lvl 1 - 10%. -->
+		<!-- P./M. Def. is decreased by Lvl 2 - 30%. -->
+		<!-- P./M. Def. is decreased by Lvl 3 - 50%. -->
 		<icon>icon.skill1042</icon>
+		<abnormalLvl>5</abnormalLvl>
+		<abnormalTime>60</abnormalTime>
+		<abnormalType>PD_DOWN</abnormalType>
 		<operateType>A2</operateType>
-		<castRange>500</castRange>
+		<castRange>600</castRange>
 		<effectPoint>-692</effectPoint>
 		<isDebuff>true</isDebuff>
+		<targetType>TARGET</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="PhysicalDefence">
+				<amount>
+					<value level="1">-10</value>
+					<value level="2">-30</value>
+					<value level="2">-50</value>
+				</amount>
+				<mode>PER</mode>
+			</effect>
+			<effect name="MagicalDefence">
+				<amount>
+					<value level="1">-10</value>
+					<value level="2">-30</value>
+					<value level="3">-50</value>
+				</amount>
+				<mode>PER</mode>
+			</effect>
+			<effect name="CallSkill">
+				<skillId>16571</skillId>
+				<skillLevel>1</skillLevel>
+			</effect>			
+		</effects>
 	</skill>
 	<skill id="18516" toLevel="1" name="Seal Altar of Wind">
 		<!-- The seal of the ruler is engraved on the ancient relic protecting the fort. -->
 		<icon>icon.skill0246</icon>
 		<operateType>A1</operateType>
-		<coolTime>500</coolTime>
 		<mpConsume>10</mpConsume>
 		<castRange>100</castRange>
-		<hitTime>60000</hitTime>
+		<hitTime>120000</hitTime>
 		<reuseDelay>5000</reuseDelay>
 	</skill>
 	<skill id="18517" toLevel="1" name="Top-grade Love Potion - Party">
@@ -560,10 +594,10 @@
 			<value level="4">10</value>
 			<value level="5">15</value>
 			<value level="6">15</value>
-			<value level="7">15</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-			<value level="8">15</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-			<value level="9">15</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-			<value level="10">15</value> <!-- FIXME: AUTO GENERATED LEVEL -->
+			<value level="7">15</value>
+			<value level="8">15</value>
+			<value level="9">15</value>
+			<value level="10">15</value>
 		</abnormalTime>
 		<operateType>A2</operateType>
 		<effectPoint>1000</effectPoint>
@@ -581,10 +615,10 @@
 					<value level="4">30000</value>
 					<value level="5">50000</value>
 					<value level="6">50000</value>
-					<value level="7">50000</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-					<value level="8">50000</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-					<value level="9">50000</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-					<value level="10">50000</value> <!-- FIXME: AUTO GENERATED LEVEL -->
+					<value level="7">55000</value>
+					<value level="8">60000</value>
+					<value level="9">65000</value>
+					<value level="10">70000</value>
 				</damage>
 			</effect>
 			<effect name="HealPercent" fromLevel="6" toLevel="10">
@@ -616,23 +650,35 @@
 					<value level="4">20</value>
 					<value level="5">30</value>
 					<value level="6">30</value>
-					<value level="7">30</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-					<value level="8">30</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-					<value level="9">30</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-					<value level="10">30</value> <!-- FIXME: AUTO GENERATED LEVEL -->
+					<value level="7">30</value>
+					<value level="8">30</value>
+					<value level="9">30</value>
+					<value level="10">30</value>
 				</amount>
 				<mode>PER</mode>
+			</effect>
+			<effect name="DamageShieldResist">
+				<amount>
+					<value level="1">0</value>
+					<value level="2">0</value>
+					<value level="3">0</value>
+					<value level="4">0</value>
+					<value level="5">0</value>
+					<value level="6">0</value>
+					<value level="7">3</value>
+					<value level="8">6</value>
+					<value level="9">9</value>
+					<value level="10">15</value>
+				</amount>
 			</effect>
 			<effect name="TriggerSkillByDamage" fromLevel="6" toLevel="10">
 				<!-- Greater Garnet - Cancel Stun -->
 				<attackerType>Creature</attackerType>
 				<minAttackerLevel>1</minAttackerLevel>
 				<maxAttackerLevel>127</maxAttackerLevel>
-				<minDamage>100</minDamage>
+				<minDamage>1</minDamage>
 				<chance>100</chance>
 				<targetType>SELF</targetType>
-				<allowSkillAttack>true</allowSkillAttack>
-				<allowNormalAttack>true</allowNormalAttack>
 				<allowWeapons>ALL</allowWeapons>
 				<skillId>18721</skillId> <!-- Greater Garnet - Cancel Stun/ Silence -->
 				<skillLevel>1</skillLevel>
@@ -703,10 +749,10 @@
 					<value level="4">20</value>
 					<value level="5">30</value>
 					<value level="6">30</value>
-					<value level="7">30</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-					<value level="8">30</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-					<value level="9">30</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-					<value level="10">30</value> <!-- FIXME: AUTO GENERATED LEVEL -->
+					<value level="7">32</value>
+					<value level="8">34</value>
+					<value level="9">36</value>
+					<value level="10">40</value>
 				</amount>
 				<mode>PER</mode>
 			</effect>
@@ -718,10 +764,10 @@
 					<value level="4">-7</value>
 					<value level="5">-15</value>
 					<value level="6">-15</value>
-					<value level="7">-15</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-					<value level="8">-15</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-					<value level="9">-15</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-					<value level="10">-15</value> <!-- FIXME: AUTO GENERATED LEVEL -->
+					<value level="7">-16</value>
+					<value level="8">-17</value>
+					<value level="9">-18</value>
+					<value level="10">-20</value>
 				</amount>
 				<mode>PER</mode>
 			</effect>
@@ -733,10 +779,10 @@
 					<value level="4">0</value>
 					<value level="5">0</value>
 					<value level="6">10</value>
-					<value level="7">10</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-					<value level="8">10</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-					<value level="9">10</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-					<value level="10">10</value> <!-- FIXME: AUTO GENERATED LEVEL -->
+					<value level="7">10</value>
+					<value level="8">10</value>
+					<value level="9">10</value>
+					<value level="10">10</value>
 				</amount>
 			</effect>
 		</effects>
@@ -1130,6 +1176,10 @@
 		<reuseDelay>2000</reuseDelay>
 		<targetType>TARGET</targetType>
 		<affectScope>SINGLE</affectScope>
+		<blockedInOlympiad>true</blockedInOlympiad> <!-- Unconfirmed -->
+		<conditions>
+			<condition name="TargetMyMentee" />
+		</conditions>
 		<effects>
 			<effect name="MaxHp">
 				<amount>15</amount>

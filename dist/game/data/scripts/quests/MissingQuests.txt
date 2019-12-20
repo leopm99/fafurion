@@ -7,9 +7,6 @@
 557 Red Libra Request - Fall of Etina
 558 Request from the Red Libra Guild - Sea of Spores
 559 Request from the Red Libra Guild - Krofin’s Nest
-565 Basic Mission: Fairy Settlement - West
-566 Basic Mission: Fairy Settlement - East
-567 Basic Mission: Isle of Souls
 568 Special Mission: Nornil's Cave
 569 Basic Mission: Seal of Shilen
 570 Special Mission: Kartia's Labyrinth (Party)
@@ -94,8 +91,6 @@
 734 Red Libra Request - Nightmare Kamaloka
 735 Red Libra Request - Embryo Command Post
 736 Red Libra Request - Altar of Shilen
-737 A Sword Hidden in a Smile
-738 Dimensional Exploration of the Unworldly Visitors
 743 At the Altar of Oblivion
 744 The Alligator Hunter returns
 745 The Outlaws are Incoming
@@ -112,7 +107,6 @@
 788 Red Libra Request - Altar of Evil
 789 Waiting for Pa'agrio
 791 Red Libra Request - Fairy Settlement
-792 The Superion Giants
 800 Hunter Guild Request - Altar of Evil
 801 Hunter Guild Request - Gludio Territory
 802 Hunter Guild Request - Turek Orc Campsite
@@ -129,7 +123,6 @@
 824 Attack the Command Post
 825 Hunter Guild Request - Valley of Saints
 832 Hunter Guild Request - Southern Region, Isle of Prayer
-833 Devil's Treasure, Tauti
 834 Against Dragonclaw
 836 Request from the Blackbird Clan
 837 Request from the Giant Trackers
@@ -155,7 +148,6 @@
 918 Red Libra Request - Atelia Fortress
 919 Red Libra Request - Superion
 922 Hunter Guild Request - Northern Region, Isle of Prayer
-923 Shinedust Extraction
 924 Giant of the Restoration Room
 925 Hunter Guild Request - Garden of Spirits
 929 Seeker Rescue
@@ -199,7 +191,6 @@
 10568 Kamael's Technological Advancement
 10569 Declaration of War
 10570 Hurrah for Kamael's Independence
-10571 Strategic Reconciliation
 10572 To Expel the Embryo's Forces
 10577 Temper a Rusting Blade
 10578 The Soul of a Sword
@@ -223,7 +214,6 @@
 10852 The Mother Tree Revival Project
 10853 To Weaken the Giants
 10854 To Seize the Fortress
-10856 Superion Appears
 10857 Secret Teleport
 10858 Queen Ramona, Controller of the Vessel
 10859 Own the Earth and the Heavens

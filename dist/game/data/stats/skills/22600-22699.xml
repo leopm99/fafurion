@@ -156,6 +156,8 @@
 		<hitCancelTime>0</hitCancelTime>
 		<magicLvl>1</magicLvl>
 		<isMagic>2</isMagic>
+		<itemConsumeCount>1</itemConsumeCount>
+		<itemConsumeId>22932</itemConsumeId><!-- Entrance Pass: Kartia's Labyrinth Lv. 85 Solo-->
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
 		<effects>
@@ -170,6 +172,8 @@
 		<hitCancelTime>0</hitCancelTime>
 		<magicLvl>1</magicLvl>
 		<isMagic>2</isMagic>
+		<itemConsumeCount>1</itemConsumeCount>
+		<itemConsumeId>22933</itemConsumeId><!-- Entrance Pass: Kartia's Labyrinth Lv. 90 Solo-->
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
 		<effects>
@@ -184,6 +188,8 @@
 		<hitCancelTime>0</hitCancelTime>
 		<magicLvl>1</magicLvl>
 		<isMagic>2</isMagic>
+		<itemConsumeCount>1</itemConsumeCount>
+		<itemConsumeId>22934</itemConsumeId><!-- Entrance Pass: Kartia's Labyrinth Lv. 95 Solo-->
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
 		<effects>
@@ -198,6 +204,8 @@
 		<hitCancelTime>0</hitCancelTime>
 		<magicLvl>1</magicLvl>
 		<isMagic>2</isMagic>
+		<itemConsumeCount>1</itemConsumeCount>
+		<itemConsumeId>22935</itemConsumeId><!-- Entrance Pass: Kartia's Labyrinth Lv. 85 Party-->
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
 		<effects>
@@ -212,6 +220,8 @@
 		<hitCancelTime>0</hitCancelTime>
 		<magicLvl>1</magicLvl>
 		<isMagic>2</isMagic>
+		<itemConsumeCount>1</itemConsumeCount>
+		<itemConsumeId>22936</itemConsumeId><!-- Entrance Pass: Kartia's Labyrinth Lv. 90 Party-->
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
 		<effects>
@@ -226,6 +236,8 @@
 		<hitCancelTime>0</hitCancelTime>
 		<magicLvl>1</magicLvl>
 		<isMagic>2</isMagic>
+		<itemConsumeCount>1</itemConsumeCount>
+		<itemConsumeId>22937</itemConsumeId><!-- Entrance Pass: Kartia's Labyrinth Lv. 95 Party-->
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
 		<effects>
@@ -1198,6 +1210,20 @@
 		<operateType>P</operateType>
 		<magicCriticalRate>5</magicCriticalRate>
 		<magicLvl>1</magicLvl>
+		<effects>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>CON</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>MEN</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>INT</stat>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="22646" toLevel="1" name="Shiny Reanimated Corpse Mask">
 		<!-- STR +1, CON +1, and DEX +1. -->
@@ -1205,6 +1231,20 @@
 		<operateType>P</operateType>
 		<magicCriticalRate>5</magicCriticalRate>
 		<magicLvl>1</magicLvl>
+		<effects>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>STR</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>CON</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>DEX</stat>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="22647" toLevel="1" name="Shriek Mask">
 		<!-- CON +1, DEX +1, and WIT +1. -->
@@ -1212,6 +1252,20 @@
 		<operateType>P</operateType>
 		<magicCriticalRate>5</magicCriticalRate>
 		<magicLvl>1</magicLvl>
+		<effects>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>CON</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>DEX</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>WIT</stat>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="22648" toLevel="1" name="Red Devil Mask">
 		<!-- INT +1, MEN +1, and WIT +1. -->
@@ -1219,6 +1273,20 @@
 		<operateType>P</operateType>
 		<magicCriticalRate>5</magicCriticalRate>
 		<magicLvl>1</magicLvl>
+		<effects>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>INT</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>MEN</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>WIT</stat>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="22649" toLevel="1" name="Mummy Mask">
 		<!-- STR +1, DEX +1, and WIT +1. -->
@@ -1226,6 +1294,20 @@
 		<operateType>P</operateType>
 		<magicCriticalRate>5</magicCriticalRate>
 		<magicLvl>1</magicLvl>
+		<effects>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>STR</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>DEX</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>WIT</stat>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="22650" toLevel="1" name="Transformation Scroll: Zombie">
 		<!-- Transformed into a Festering Zombie. -->

@@ -1093,9 +1093,6 @@
 		<staticReuse>true</staticReuse>
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
-		<conditions>
-			<condition name="OpNeedAgathion" />
-		</conditions>
 	</skill>
 	<skill id="23218" toLevel="1" name="Flower Fairy Spirit Agathion Cute Trick">
 		<!-- See the summoned spirit perform cute tricks. -->
@@ -1133,9 +1130,6 @@
 		<staticReuse>true</staticReuse>
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
-		<conditions>
-			<condition name="OpNeedAgathion" />
-		</conditions>
 	</skill>
 	<skill id="23220" toLevel="1" name="Cheerleader Orodriel Agathion Cute Trick">
 		<!-- See the summoned spirit perform cute tricks. -->
@@ -1173,9 +1167,6 @@
 		<staticReuse>true</staticReuse>
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
-		<conditions>
-			<condition name="OpNeedAgathion" />
-		</conditions>
 	</skill>
 	<skill id="23222" toLevel="1" name="Cheerleader Lanya Agathion Cute Trick">
 		<!-- See the summoned spirit perform cute tricks. -->
@@ -1213,9 +1204,6 @@
 		<staticReuse>true</staticReuse>
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
-		<conditions>
-			<condition name="OpNeedAgathion" />
-		</conditions>
 	</skill>
 	<skill id="23224" toLevel="1" name="Cheerleader Naonin Agathion Cute Trick">
 		<!-- See the summoned spirit perform cute tricks. -->
@@ -1253,9 +1241,6 @@
 		<staticReuse>true</staticReuse>
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
-		<conditions>
-			<condition name="OpNeedAgathion" />
-		</conditions>
 	</skill>
 	<skill id="23226" toLevel="1" name="Cheerleader Mortia Agathion Cute Trick">
 		<!-- See the summoned spirit perform cute tricks. -->
@@ -1293,9 +1278,6 @@
 		<staticReuse>true</staticReuse>
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
-		<conditions>
-			<condition name="OpNeedAgathion" />
-		</conditions>
 	</skill>
 	<skill id="23228" toLevel="1" name="Cheerleader Kaurin Agathion Cute Trick">
 		<!-- See the summoned spirit perform cute tricks. -->
@@ -1333,9 +1315,6 @@
 		<staticReuse>true</staticReuse>
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
-		<conditions>
-			<condition name="OpNeedAgathion" />
-		</conditions>
 	</skill>
 	<skill id="23230" toLevel="1" name="Cheerleader Meruril Agathion Cute Trick">
 		<!-- See the summoned spirit perform cute tricks. -->
@@ -1373,9 +1352,6 @@
 		<staticReuse>true</staticReuse>
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
-		<conditions>
-			<condition name="OpNeedAgathion" />
-		</conditions>
 	</skill>
 	<skill id="23232" toLevel="1" name="Handy Agathion Cute Trick">
 		<!-- See the summoned spirit perform cute tricks. -->
@@ -1413,9 +1389,6 @@
 		<hitTime>4000</hitTime>
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
-		<conditions>
-			<condition name="OpNeedAgathion" />
-		</conditions>
 	</skill>
 	<skill id="23234" toLevel="1" name="Singer and Dancer Agathion Cute Trick">
 		<!-- See the summoned spirit perform cute tricks. -->
@@ -1449,9 +1422,6 @@
 		<isMagic>2</isMagic>
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
-		<conditions>
-			<condition name="OpNeedAgathion" />
-		</conditions>
 	</skill>
 	<skill id="23236" toLevel="1" name="Agathion Cute Trick - Zaken's Spirit Swords">
 		<!-- See the summoned spirit perform cute tricks. -->
@@ -1485,9 +1455,6 @@
 		<isMagic>2</isMagic>
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
-		<conditions>
-			<condition name="OpNeedAgathion" />
-		</conditions>
 	</skill>
 	<skill id="23238" toLevel="1" name="Master's Blessing - Pa'agrio's Eye">
 		<!-- The GM is always by your side. Combines the increased Accuracy effect and critical defense effect for a more advanced effect. For 1 h., increases Accuracy by 4 and decreases the rate of being hit by a critical attack by 30%. -->
@@ -1581,6 +1548,13 @@
 		<targetType>TARGET</targetType>
 		<affectScope>SINGLE</affectScope>
 		<effects>
+			<effect name="DispelBySlotProbability">
+				<dispel>BUFF_SPECIAL_ATTACK;BUFF_SPECIAL_CRITICAL;BUFF_SPECIAL_CONDITION;BUFF_SPECIAL_MOVE;BUFF_SPECIAL_CLASS</dispel>
+				<rate>100</rate>
+			</effect>
+			<effect name="BlockAbnormalSlot">
+				<slot>BUFF_SPECIAL_ATTACK;BUFF_SPECIAL_CRITICAL;BUFF_SPECIAL_CONDITION;BUFF_SPECIAL_MOVE;BUFF_SPECIAL_CLASS</slot>
+			</effect>
 			<effect name="MAtk">
 				<amount>30</amount>
 				<mode>PER</mode>
@@ -2785,6 +2759,13 @@
 		<affectScope>RANGE</affectScope>
 		<affectObject>FRIEND</affectObject>
 		<effects>
+			<effect name="DispelBySlotProbability">
+				<dispel>BUFF_SPECIAL_ATTACK;BUFF_SPECIAL_CRITICAL;BUFF_SPECIAL_CONDITION;BUFF_SPECIAL_MOVE;BUFF_SPECIAL_CLASS</dispel>
+				<rate>100</rate>
+			</effect>
+			<effect name="BlockAbnormalSlot">
+				<slot>BUFF_SPECIAL_ATTACK;BUFF_SPECIAL_CRITICAL;BUFF_SPECIAL_CONDITION;BUFF_SPECIAL_MOVE;BUFF_SPECIAL_CLASS</slot>
+			</effect>
 			<effect name="MaxHp">
 				<amount>20</amount>
 				<mode>PER</mode>
@@ -3253,6 +3234,13 @@
 		<affectScope>RANGE</affectScope>
 		<affectObject>FRIEND</affectObject>
 		<effects>
+			<effect name="DispelBySlotProbability">
+				<dispel>BUFF_SPECIAL_ATTACK;BUFF_SPECIAL_CRITICAL;BUFF_SPECIAL_CONDITION;BUFF_SPECIAL_MOVE;BUFF_SPECIAL_CLASS</dispel>
+				<rate>100</rate>
+			</effect>
+			<effect name="BlockAbnormalSlot">
+				<slot>BUFF_SPECIAL_ATTACK;BUFF_SPECIAL_CRITICAL;BUFF_SPECIAL_CONDITION;BUFF_SPECIAL_MOVE;BUFF_SPECIAL_CLASS</slot>
+			</effect>
 			<effect name="MAtk">
 				<amount>30</amount>
 				<mode>PER</mode>
@@ -3602,7 +3590,6 @@
 		<magicCriticalRate>-5</magicCriticalRate>
 		<specialLevel>-1</specialLevel>
 		<hitCancelTime>0</hitCancelTime>
-		<activateRate>0</activateRate>
 		<abnormalLvl>3</abnormalLvl>
 		<abnormalTime>1200</abnormalTime>
 		<irreplacableBuff>true</irreplacableBuff>
@@ -3613,6 +3600,20 @@
 		<isMagic>2</isMagic>
 		<targetType>SELF</targetType>
 		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="Speed">
+				<amount>10</amount>
+				<mode>DIFF</mode>
+			</effect>
+			<effect name="PhysicalAttackSpeed">
+				<amount>10</amount>
+				<mode>PER</mode>
+			</effect>
+			<effect name="MagicalAttackSpeed">
+				<amount>10</amount>
+				<mode>PER</mode>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="23298" toLevel="1" name="Flame Hawk">
 		<!-- Envelops in flames to inflict 300 fire damage every second for 10 sec. -->

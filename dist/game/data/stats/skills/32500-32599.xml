@@ -20,6 +20,15 @@
 		<hitTime>1500</hitTime>
 		<coolTime>500</coolTime>
 		<effectPoint>-100</effectPoint>
+		<effectRange>1100</effectRange>
+		<magicCriticalRate>-5</magicCriticalRate>
+		<targetType>ENEMY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="MagicalAttack">
+				<power>2000</power> <!-- Guessing -->
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32502" toLevel="1" name="Tabeth Spore Blast">
 		<!-- Powerful Magic Attack within Target Range -->
@@ -30,6 +39,33 @@
 		<coolTime>500</coolTime>
 		<reuseDelay>1000</reuseDelay>
 		<effectPoint>-100</effectPoint>
+		<affectLimit>5-12</affectLimit>
+		<abnormalTime>1</abnormalTime>
+		<abnormalLvl>1</abnormalLvl>
+		<activateRate>60</activateRate>
+		<nextAction>ATTACK</nextAction>
+		<affectRange>600</affectRange>
+		<affectLimit>10-10</affectLimit>
+		<basicProperty>NONE</basicProperty>
+		<effectPoint>-5013</effectPoint>
+		<effectRange>600</effectRange>
+		<isDebuff>true</isDebuff>
+		<magicLvl>100</magicLvl>
+		<mpConsume>80</mpConsume>
+		<reuseDelay>45000</reuseDelay>
+		<magicCriticalRate>5</magicCriticalRate>
+		<targetType>ENEMY_ONLY</targetType>
+		<affectScope>FAN</affectScope>
+		<affectObject>NOT_FRIEND</affectObject>
+		<fanRange>0;0;600;180</fanRange>
+		<basicProperty>MAGIC</basicProperty> <!-- Guessed -->
+		<lvlBonusRate>1</lvlBonusRate>
+		<effects>
+			<effect name="MagicalAttack">
+				<power>15000</power>
+				<chance>15</chance>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32503" toLevel="1" name="Tabeth Spore Blossom">
 		<!-- Affected by a rising cloud of spores. Decreases Speed by 30 and receives damage over time for 5 sec. -->
@@ -50,17 +86,53 @@
 		<coolTime>500</coolTime>
 		<reuseDelay>1000</reuseDelay>
 		<effectPoint>-100</effectPoint>
+		<castRange>40</castRange>
+		<magicCriticalRate>5</magicCriticalRate>
+		<magicLvl>100</magicLvl>
+		<mpConsume>80</mpConsume>
+		<effectRange>200</effectRange>
+		<targetType>ENEMY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="PhysicalAttack">
+				<power>100000</power>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32505" toLevel="1" name="Tabeth Body Attack">
 		<!-- Deals physical damage to the target and stuns them. -->
 		<icon>icon.skill0092</icon>
-		<operateType>A1</operateType>
+		<operateType>A2</operateType>
 		<isDebuff>true</isDebuff>
 		<castRange>250</castRange>
 		<hitTime>1500</hitTime>
 		<coolTime>500</coolTime>
 		<reuseDelay>1000</reuseDelay>
 		<effectPoint>-100</effectPoint>
+		<abnormalLvl>1</abnormalLvl>
+		<abnormalTime>3</abnormalTime>
+		<abnormalType>STUN</abnormalType>
+		<abnormalVisualEffect>STUN</abnormalVisualEffect>
+		<activateRate>200</activateRate>
+		<basicProperty>PHYSICAL</basicProperty>
+		<effectRange>300</effectRange>
+		<magicLvl>1</magicLvl>
+		<magicCriticalRate>5</magicCriticalRate>
+		<trait>SHOCK</trait>
+		<targetType>ENEMY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="PhysicalAttack">
+				<power>10000</power> <!-- Fix: Retail Missed -->
+				<overHit>true</overHit>
+			</effect>
+			<effect name="BlockActions">
+				<allowedSkills>10279;10517;10025;10776;11770;1904;11264;11093;13314;1912</allowedSkills>
+			</effect>
+			<effect name="TargetCancel">
+				<chance>40</chance>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32506" toLevel="5" name="Energy of the Sea of Spores">
 		<!-- Energy of the Sea of Spores collected in the Sea of Spores increases P. Def./ M. Def. by $s1 and HP Recovery by $s2. -->
@@ -302,6 +374,31 @@
 		<coolTime>500</coolTime>
 		<reuseDelay>10000</reuseDelay>
 		<effectPoint>-100</effectPoint>
+		<abnormalLvl>1</abnormalLvl>
+		<abnormalTime>5</abnormalTime>
+		<affectLimit>5-10</affectLimit>
+		<abnormalType>KNOCKDOWN</abnormalType>
+		<abnormalVisualEffect>KNOCKDOWN</abnormalVisualEffect>
+		<activateRate>200</activateRate>
+		<affectRange>600</affectRange>
+		<basicProperty>PHYSICAL</basicProperty>
+		<effectRange>800</effectRange>
+		<fanRange>0;0;600;60</fanRange>
+		<magicLvl>1</magicLvl>
+		<trait>KNOCKDOWN</trait>
+		<targetType>ENEMY</targetType>
+		<affectScope>FAN</affectScope>
+		<affectObject>NOT_FRIEND</affectObject>
+		<effects>
+			<effect name="KnockBack">
+				<speed>200</speed>
+				<distance>100</distance>
+				<knockDown>true</knockDown>
+			</effect>
+			<effect name="TargetCancel">
+				<chance>40</chance>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32530" toLevel="10" name="Red Nosed Rudolph - Stage 1">
 		<!-- You can receive items after $s1. A total of $s2 stages. Increases all basic stats by $s3, and decreases Vitality consumption speed by $s4.\n<Warning> If you are dead at the time the items are given, you can't receive Red Nosed Rudolph Buff or the items. You also can't receive the items if there is no room in your inventory. -->
@@ -351,6 +448,17 @@
 		<hitTime>1500</hitTime>
 		<coolTime>500</coolTime>
 		<effectPoint>-700</effectPoint>
+		<activateRate>100</activateRate>
+		<hitCancelTime>0</hitCancelTime>
+		<affectRange>1000</affectRange>
+		<effectRange>1100</effectRange>
+		<targetType>ENEMY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="MagicalAttack">
+				<power>723</power>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32537" toLevel="1" name="Lilith Magic Blast">
 		<operateType>A1</operateType>
@@ -359,17 +467,43 @@
 		<hitTime>3000</hitTime>
 		<coolTime>500</coolTime>
 		<effectPoint>-700</effectPoint>
+		<activateRate>70</activateRate>
+		<hitCancelTime>0</hitCancelTime>
+		<affectRange>900</affectRange>
+		<targetType>SELF</targetType>
+		<affectScope>POINT_BLANK</affectScope>
+		<affectObject>NOT_FRIEND</affectObject>
+		<effects>
+			<effect name="MagicalAttack">
+				<power>723</power>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32538" toLevel="1" name="Lilith Unholy Vengeance">
 		<!-- The Power of Darkness locks skills for 5 sec. -->
 		<icon>icon.skill1336</icon>
-		<operateType>A1</operateType>
+		<operateType>A2</operateType>
 		<isMagic>1</isMagic> <!-- Magic Skill -->
 		<isDebuff>true</isDebuff>
 		<hitTime>5000</hitTime>
 		<coolTime>500</coolTime>
 		<reuseDelay>10000</reuseDelay>
 		<effectPoint>-700</effectPoint>
+		<abnormalLvl>1</abnormalLvl>
+		<abnormalTime>5</abnormalTime>
+		<abnormalType>ROOT_MAGICALLY</abnormalType>
+		<abnormalVisualEffect>ROOT</abnormalVisualEffect>
+		<affectLimit>200-200</affectLimit>
+		<hitCancelTime>0</hitCancelTime>
+		<activateRate>100</activateRate>
+		<affectRange>1200</affectRange>
+		<trait>HOLD</trait>
+		<targetType>SELF</targetType>
+		<affectScope>POINT_BLANK</affectScope>
+		<affectObject>NOT_FRIEND</affectObject>
+		<effects>
+			<effect name="Root" />
+		</effects>
 	</skill>
 	<skill id="32539" toLevel="1" name="Lilith Unholy Dimension">
 		<operateType>A1</operateType>
@@ -598,6 +732,16 @@
 		<hitTime>1000</hitTime>
 		<coolTime>500</coolTime>
 		<effectPoint>-100</effectPoint>
+		<hitCancelTime>0</hitCancelTime>
+		<hitTime>3000</hitTime>
+		<effectRange>500</effectRange>
+		<targetType>ENEMY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="PhysicalAttack">
+				<power>61189</power>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32567" toLevel="1" name="Anakim Power Multi Shot">
 		<operateType>A1</operateType>
@@ -605,16 +749,44 @@
 		<hitTime>2000</hitTime>
 		<coolTime>500</coolTime>
 		<effectPoint>-100</effectPoint>
+		<affectLimit>200-200</affectLimit>
+		<hitCancelTime>0</hitCancelTime>
+		<hitTime>3000</hitTime>
+		<affectRange>500</affectRange>
+		<fanRange>0;0;500;90</fanRange>
+		<targetType>ENEMY</targetType>
+		<affectScope>FAN</affectScope>
+		<affectObject>NOT_FRIEND</affectObject>
+		<effects>
+			<effect name="PhysicalAttack">
+				<power>61189</power>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32568" toLevel="1" name="Anakim Holy Vengeance">
 		<!-- Anakim's lightning strike paralyzes the enemy for 2 sec. -->
 		<icon>icon.skill1170</icon>
-		<operateType>A1</operateType>
+		<operateType>A2</operateType>
 		<isDebuff>true</isDebuff>
 		<hitTime>5000</hitTime>
 		<coolTime>500</coolTime>
 		<reuseDelay>10000</reuseDelay>
 		<effectPoint>-100</effectPoint>
+		<activateRate>100</activateRate>
+		<abnormalLvl>1</abnormalLvl>
+		<abnormalTime>2</abnormalTime>
+		<abnormalType>PARALYZE</abnormalType>
+		<abnormalVisualEffect>PARALYZE</abnormalVisualEffect>
+		<hitCancelTime>0</hitCancelTime>
+		<affectLimit>200-200</affectLimit>
+		<affectRange>1000</affectRange>
+		<trait>PARALYZE</trait>
+		<targetType>SELF</targetType>
+		<affectScope>POINT_BLANK</affectScope>
+		<affectObject>NOT_FRIEND</affectObject>
+		<effects>
+			<effect name="BlockActions" />
+		</effects>
 	</skill>
 	<skill id="32569" toLevel="1" name="Anakim Holy Dimension">
 		<operateType>A1</operateType>

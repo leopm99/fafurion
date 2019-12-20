@@ -2012,6 +2012,14 @@
 				<type>BLOCK_MP</type>
 			</effect>
 			<effect name="DebuffBlock" />
+			<effect name="ResistDispelByCategory">
+				<amount>-100</amount>
+				<slot>ALL</slot>
+			</effect>
+			<effect name="ResistAbnormalByCategory">
+				<amount>-100</amount>
+				<slot>DEBUFF</slot>
+			</effect>
 			<effect name="HpRegen">
 				<amount>
 					<value level="1">20</value>
@@ -3435,6 +3443,10 @@
 					<value fromLevel="7" toLevel="13" fromSubLevel="1020" toSubLevel="1020">{base + (base / 100 * (8 + 0.1 * (subIndex - 19)))}</value>
 				</power>
 				<shieldDefPercent>40</shieldDefPercent>
+			</effect>
+			<effect name="Speed">
+				<amount>-150</amount>
+				<mode>DIFF</mode>
 			</effect>
 		</effects>
 	</skill>

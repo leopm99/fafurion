@@ -112,7 +112,7 @@ public class Hardin extends AbstractNpcAI
 					}
 				}
 				classes.append("<button value=\"");
-				classes.append(ClassListData.getInstance().getClass(c.ordinal()).getClassName());
+				classes.append(ClassListData.getInstance().getClass(c.getId()).getClassName());
 				classes.append("\" action=\"bypass -h Quest Hardin try_");
 				classes.append(String.valueOf(c.getId()));
 				classes.append("\" width=\"200\" height=\"31\" back=\"L2UI_CT1.HtmlWnd_DF_Awake_Down\" fore=\"L2UI_CT1.HtmlWnd_DF_Awake\"><br1>");
@@ -136,9 +136,9 @@ public class Hardin extends AbstractNpcAI
 			}
 			// Ertheias can only be female
 			final ClassId newClass = ClassId.getClassId(Integer.parseInt(event.replace("try_", "")));
-			if ((newClass.getRace() == Race.ERTHEIA) && (player.getClassId().getRace() != Race.ERTHEIA) && !player.getAppearance().getSex())
+			if ((newClass.getRace() == Race.ERTHEIA) && (player.getClassId().getRace() != Race.ERTHEIA) && !player.getAppearance().isFemale())
 			{
-				player.getAppearance().setSex(true);
+				player.getAppearance().setFemale();
 			}
 			// Change class
 			player.setClassId(newClass.getId());

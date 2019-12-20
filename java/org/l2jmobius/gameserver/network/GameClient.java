@@ -36,7 +36,6 @@ import org.l2jmobius.gameserver.data.sql.impl.CharNameTable;
 import org.l2jmobius.gameserver.data.sql.impl.ClanTable;
 import org.l2jmobius.gameserver.data.xml.impl.SecondaryAuthData;
 import org.l2jmobius.gameserver.enums.CharacterDeleteFailType;
-import org.l2jmobius.gameserver.idfactory.IdFactory;
 import org.l2jmobius.gameserver.instancemanager.CommissionManager;
 import org.l2jmobius.gameserver.instancemanager.MailManager;
 import org.l2jmobius.gameserver.instancemanager.MentorManager;
@@ -68,8 +67,6 @@ public class GameClient extends ChannelInboundHandler<GameClient>
 	protected static final Logger LOGGER = Logger.getLogger(GameClient.class.getName());
 	protected static final Logger LOGGER_ACCOUNTING = Logger.getLogger("accounting");
 	
-	private final int _objectId;
-	
 	// Info
 	private InetAddress _addr;
 	private Channel _channel;
@@ -90,19 +87,15 @@ public class GameClient extends ChannelInboundHandler<GameClient>
 	
 	private volatile boolean _isDetached = false;
 	
-	private boolean _protocol;
+	private int _protocolVersion;
+	
+	private boolean _protocolOk;
 	
 	private int[][] trace;
 	
 	public GameClient()
 	{
-		_objectId = IdFactory.getInstance().getNextId();
 		_crypt = new Crypt(this);
-	}
-	
-	public int getObjectId()
-	{
-		return _objectId;
 	}
 	
 	@Override
@@ -126,7 +119,6 @@ public class GameClient extends ChannelInboundHandler<GameClient>
 		
 		if ((_player == null) || !_player.isInOfflineMode())
 		{
-			IdFactory.getInstance().releaseId(getObjectId());
 			Disconnection.of(this).onDisconnection();
 		}
 	}
@@ -563,7 +555,17 @@ public class GameClient extends ChannelInboundHandler<GameClient>
 			{
 				LOGGER.severe("Attempt of double login: " + player.getName() + "(" + objectId + ") " + _accountName);
 			}
-			Disconnection.of(player).defaultSequence(false);
+			
+			if (player.getClient() != null)
+			{
+				Disconnection.of(player).defaultSequence(false);
+			}
+			else
+			{
+				player.storeMe();
+				player.deleteMe();
+			}
+			
 			return null;
 		}
 		
@@ -650,14 +652,24 @@ public class GameClient extends ChannelInboundHandler<GameClient>
 		}
 	}
 	
+	public void setProtocolVersion(int version)
+	{
+		_protocolVersion = version;
+	}
+	
+	public int getProtocolVersion()
+	{
+		return _protocolVersion;
+	}
+	
 	public boolean isProtocolOk()
 	{
-		return _protocol;
+		return _protocolOk;
 	}
 	
 	public void setProtocolOk(boolean b)
 	{
-		_protocol = b;
+		_protocolOk = b;
 	}
 	
 	public void setClientTracert(int[][] tracert)

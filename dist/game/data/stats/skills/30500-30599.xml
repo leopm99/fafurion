@@ -147,9 +147,10 @@
 	<skill id="30501" toLevel="29" name="Backspin Impact">
 		<!-- Turns and deals a strong punch, creating wind. The energy of the wind hits the target, dealing $s1 damage and stunning it for $s2. Requires a fist weapon. -->
 		<icon>icon.skill30501</icon>
-		<abnormalTime>9</abnormalTime>
+		<abnormalTime>3</abnormalTime>
 		<abnormalType>STUN</abnormalType>
 		<abnormalVisualEffect>STUN</abnormalVisualEffect>
+		<activateRate>60</activateRate>
 		<trait>SHOCK</trait>
 		<castRange>600</castRange>
 		<coolTime>500</coolTime>
@@ -641,8 +642,8 @@
 		<icon>icon.skill30506</icon>
 		<abnormalLvl>1</abnormalLvl>
 		<abnormalTime>2</abnormalTime>
-		<abnormalType>STUN</abnormalType>
-		<abnormalVisualEffect>KNOCKBACK</abnormalVisualEffect>
+		<abnormalType>KNOCKDOWN</abnormalType>
+		<abnormalVisualEffect>KNOCKDOWN</abnormalVisualEffect>
 		<activateRate>
 			<value fromLevel="1" toLevel="16">80</value>
 			<value fromLevel="10" toLevel="16" fromSubLevel="2001" toSubLevel="2020">{base + (base / 100 * subIndex)}</value>
@@ -697,7 +698,7 @@
 		<affectScope>FAN</affectScope>
 		<affectObject>NOT_FRIEND</affectObject>
 		<isDebuff>true</isDebuff>
-		<trait>KNOCKBACK</trait>
+		<trait>KNOCKDOWN</trait>
 		<conditions>
 			<condition name="EquipWeapon">
 				<weaponType>
@@ -729,9 +730,9 @@
 				<criticalChance>15</criticalChance> <!-- Unconfirmed -->
 			</effect>
 			<effect name="KnockBack">
-				<type>THROW_UP</type>
+				<speed>400</speed>
 				<distance>100</distance>
-				<animationSpeed>0</animationSpeed>
+				<knockDown>true</knockDown>
 			</effect>
 			<effect name="PhysicalDefence" fromLevel="10" toLevel="16" fromSubLevel="3001" toSubLevel="3020">
 				<amount>
@@ -912,7 +913,7 @@
 		</conditions>
 		<effects>
 			<effect name="TargetCancel">
-				<chance>90</chance>
+				<chance>100</chance>
 			</effect>
 		</effects>
 		<selfEffects>
@@ -925,6 +926,10 @@
 					<value level="4">4</value>
 					<value level="5">5</value>
 				</skillLevel>
+			</effect>
+			<effect name="CallSkill">
+				<skillId>30533</skillId> <!-- Backside Purge -->
+				<skillLevel>1</skillLevel>
 			</effect>
 		</selfEffects>
 	</skill>
@@ -957,8 +962,8 @@
 			<value level="3">3</value>
 			<value level="4">4</value>
 			<value level="5">5</value>
-			<value level="6">5</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-			<value level="7">5</value> <!-- FIXME: AUTO GENERATED LEVEL -->
+			<value level="6">6</value>
+			<value level="7">7</value>
 		</abnormalLvl>
 		<abnormalTime>1800</abnormalTime>
 		<abnormalType>NONE</abnormalType>
@@ -971,6 +976,8 @@
 			<value level="3">45</value>
 			<value level="4">45</value>
 			<value level="5">45</value>
+			<value level="6">45</value>
+			<value level="7">45</value>
 		</mpConsume>
 		<hitTime>1500</hitTime>
 		<coolTime>500</coolTime>
@@ -1182,6 +1189,9 @@
 				</amount>
 				<mode>DIFF</mode>
 			</effect>
+			<effect name="AbnormalShield">
+				<times>1</times>
+			</effect>
 		</effects>
 	</skill>
 	<skill id="30515" toLevel="1" name="Spallation">
@@ -1259,6 +1269,10 @@
 			<effect name="ResistDispelByCategory">
 				<amount>-100</amount>
 				<slot>ALL</slot>
+			</effect>
+			<effect name="ResistAbnormalByCategory">
+				<amount>-100</amount>
+				<slot>DEBUFF</slot>
 			</effect>
 		</effects>
 	</skill>
@@ -1783,6 +1797,14 @@
 				<castSkillId>30508</castSkillId> <!-- Right Sidestep -->
 				<targetType>SELF</targetType>
 			</effect>
+			<effect name="PAtk">
+				<amount>
+					<value level="1">5</value>
+					<value level="2">10</value>
+					<value level="3">15</value>
+				</amount>
+				<mode>PER</mode>
+			</effect>
 			<effect name="CriticalRate">
 				<amount>
 					<value level="1">10</value>
@@ -1811,8 +1833,21 @@
 	</skill>
 	<skill id="30533" toLevel="1" name="Backside Purge">
 		<icon>icon.skill30509</icon>
-		<operateType>A1</operateType>
+		<operateType>A2</operateType>
 		<effectPoint>2</effectPoint>
+		<targetType>SELF</targetType>
+		<affectScope>SINGLE</affectScope>
+		<abnormalType>ABNORMAL_INVINCIBILITY</abnormalType>
+		<abnormalLvl>1</abnormalLvl>
+		<abnormalTime>5</abnormalTime>
+		<effects>
+			<effect name="DispelByCategory">
+				<slot>DEBUFF</slot>
+				<rate>100</rate>
+				<max>10</max>
+			</effect>
+			<effect name="DebuffBlock"/>
+		</effects>
 	</skill>
 	<skill id="30534" toLevel="1" name="Transform Puppy 1">
 		<!-- Transforms into a Test - Puppy. -->

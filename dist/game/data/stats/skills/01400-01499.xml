@@ -517,6 +517,13 @@
 		<affectScope>PARTY</affectScope>
 		<affectObject>FRIEND</affectObject>
 		<effects>
+			<effect name="DispelBySlotProbability">
+				<dispel>BUFF_SPECIAL_ATTACK;BUFF_SPECIAL_CRITICAL;BUFF_SPECIAL_CONDITION;BUFF_SPECIAL_MOVE;BUFF_SPECIAL_CLASS</dispel>
+				<rate>100</rate>
+			</effect>
+			<effect name="BlockAbnormalSlot">
+				<slot>BUFF_SPECIAL_ATTACK;BUFF_SPECIAL_CRITICAL;BUFF_SPECIAL_CONDITION;BUFF_SPECIAL_MOVE;BUFF_SPECIAL_CLASS</slot>
+			</effect>
 			<effect name="MAtk">
 				<amount>30</amount>
 				<mode>PER</mode>
@@ -598,6 +605,13 @@
 		<affectScope>PARTY_PLEDGE</affectScope>
 		<affectObject>FRIEND</affectObject>
 		<effects>
+			<effect name="DispelBySlotProbability">
+				<dispel>BUFF_SPECIAL_ATTACK;BUFF_SPECIAL_CRITICAL;BUFF_SPECIAL_CONDITION;BUFF_SPECIAL_MOVE;BUFF_SPECIAL_CLASS</dispel>
+				<rate>100</rate>
+			</effect>
+			<effect name="BlockAbnormalSlot">
+				<slot>BUFF_SPECIAL_ATTACK;BUFF_SPECIAL_CRITICAL;BUFF_SPECIAL_CONDITION;BUFF_SPECIAL_MOVE;BUFF_SPECIAL_CLASS</slot>
+			</effect>
 			<effect name="CpHealPercent">
 				<power>20</power>
 			</effect>
@@ -849,6 +863,10 @@
 			<effect name="ResistDispelByCategory">
 				<amount>-100</amount>
 				<slot>ALL</slot>
+			</effect>
+			<effect name="ResistAbnormalByCategory">
+				<amount>-100</amount>
+				<slot>DEBUFF</slot>
 			</effect>
 		</effects>
 	</skill>
@@ -1165,6 +1183,14 @@
 				<type>BLOCK_MP</type>
 			</effect>
 			<effect name="DebuffBlock" />
+			<effect name="ResistDispelByCategory">
+				<amount>-100</amount>
+				<slot>ALL</slot>
+			</effect>
+			<effect name="ResistAbnormalByCategory">
+				<amount>-100</amount>
+				<slot>DEBUFF</slot>
+			</effect>
 		</effects>
 	</skill>
 	<skill id="1428" toLevel="1" name="Mass Recharge">
@@ -3154,6 +3180,13 @@
 		<affectScope>PARTY</affectScope>
 		<affectObject>FRIEND</affectObject>
 		<effects>
+			<effect name="DispelBySlotProbability">
+				<dispel>BUFF_SPECIAL_ATTACK;BUFF_SPECIAL_CRITICAL;BUFF_SPECIAL_CONDITION;BUFF_SPECIAL_MOVE;BUFF_SPECIAL_CLASS</dispel>
+				<rate>100</rate>
+			</effect>
+			<effect name="BlockAbnormalSlot">
+				<slot>BUFF_SPECIAL_ATTACK;BUFF_SPECIAL_CRITICAL;BUFF_SPECIAL_CONDITION;BUFF_SPECIAL_MOVE;BUFF_SPECIAL_CLASS</slot>
+			</effect>
 			<effect name="DefenceCriticalDamage">
 				<amount>-30</amount>
 				<mode>PER</mode>
@@ -4594,6 +4627,14 @@
 				<type>BLOCK_MP</type>
 			</effect>
 			<effect name="DebuffBlock" />
+			<effect name="ResistDispelByCategory">
+				<amount>-100</amount>
+				<slot>ALL</slot>
+			</effect>
+			<effect name="ResistAbnormalByCategory">
+				<amount>-100</amount>
+				<slot>DEBUFF</slot>
+			</effect>
 		</effects>
 	</skill>
 	<skill id="1497" toLevel="1" name="Excessive Loyalty">

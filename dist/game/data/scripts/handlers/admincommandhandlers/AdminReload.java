@@ -22,6 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.l2jmobius.Config;
+import org.l2jmobius.commons.enums.ServerMode;
 import org.l2jmobius.gameserver.cache.HtmCache;
 import org.l2jmobius.gameserver.data.sql.impl.CrestTable;
 import org.l2jmobius.gameserver.data.xml.impl.AdminData;
@@ -50,6 +51,7 @@ import org.l2jmobius.gameserver.datatables.ItemTable;
 import org.l2jmobius.gameserver.handler.IAdminCommandHandler;
 import org.l2jmobius.gameserver.instancemanager.CursedWeaponsManager;
 import org.l2jmobius.gameserver.instancemanager.FakePlayerChatManager;
+import org.l2jmobius.gameserver.instancemanager.InstanceManager;
 import org.l2jmobius.gameserver.instancemanager.QuestManager;
 import org.l2jmobius.gameserver.instancemanager.WalkingManager;
 import org.l2jmobius.gameserver.instancemanager.ZoneManager;
@@ -95,7 +97,7 @@ public class AdminReload implements IAdminCommandHandler
 			{
 				case "config":
 				{
-					Config.load();
+					Config.load(ServerMode.GAME);
 					AdminData.getInstance().broadcastMessageToGMs(activeChar.getName() + ": Reloaded Configs.");
 					break;
 				}
@@ -343,6 +345,12 @@ public class AdminReload implements IAdminCommandHandler
 					SendMessageLocalisationData.getInstance().load();
 					NpcNameLocalisationData.getInstance().load();
 					AdminData.getInstance().broadcastMessageToGMs(activeChar.getName() + ": Reloaded Localisation data.");
+					break;
+				}
+				case "instance":
+				{
+					InstanceManager.getInstance().load();
+					AdminData.getInstance().broadcastMessageToGMs(activeChar.getName() + ": Reloaded Instances data.");
 					break;
 				}
 				default:

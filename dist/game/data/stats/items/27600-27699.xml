@@ -768,7 +768,6 @@
 		</skills>
 		<stats>
 			<stat type="mDef">292.0</stat>
-			<stat type="maxMp">107</stat>
 		</stats>
 	</item>
 	<item id="27679" name="Gran Kain's Necklace - Stage 2" type="Armor">
@@ -785,11 +784,11 @@
 		<skills>
 			<skill id="46723" level="1" type="ON_EQUIP" /> <!-- Equip Gran Kain's Necklace - Necklace Stage 2 -->
 			<skill id="46724" level="1" type="ON_UNEQUIP" /> <!-- Unequip Gran Kain's Necklace - Necklace Stage 2 -->
-			<skill id="27635" level="1" /> <!-- Gran Kain's Necklace -->
+			<skill id="27634" level="2" /> <!-- Gran Kain's Necklace -->
+			<skill id="27749" level="2" />
 		</skills>
 		<stats>
 			<stat type="mDef">333.0</stat>
-			<stat type="maxMp">114</stat>
 		</stats>
 	</item>
 	<item id="27680" name="Gran Kain's Necklace - Stage 3" type="Armor">
@@ -806,11 +805,11 @@
 		<skills>
 			<skill id="46729" level="1" type="ON_EQUIP" /> <!-- Equip Gran Kain's Necklace - Necklace Stage 3 -->
 			<skill id="46730" level="1" type="ON_UNEQUIP" /> <!-- Unequip Gran Kain's Necklace - Necklace Stage 3 -->
-			<skill id="27636" level="1" /> <!-- Gran Kain's Necklace -->
+			<skill id="27634" level="3"/> <!-- Gran Kain's Necklace -->
+			<skill id="27749" level="3" />
 		</skills>
 		<stats>
 			<stat type="mDef">374.0</stat>
-			<stat type="maxMp">121</stat>
 		</stats>
 	</item>
 	<item id="27681" name="Gran Kain's Necklace - Stage 4" type="Armor">
@@ -827,11 +826,11 @@
 		<skills>
 			<skill id="46759" level="1" type="ON_EQUIP" /> <!-- Equip Gran Kain's Necklace - Necklace Stage 4 -->
 			<skill id="46760" level="1" type="ON_UNEQUIP" /> <!-- Unequip Gran Kain's Necklace - Necklace Stage 4 -->
-			<skill id="27637" level="1" /> <!-- Gran Kain's Necklace -->
+			<skill id="27634" level="4" /> <!-- Gran Kain's Necklace -->
+			<skill id="27749" level="4" />
 		</skills>
 		<stats>
 			<stat type="mDef">407.0</stat>
-			<stat type="maxMp">126</stat>
 		</stats>
 	</item>
 	<item id="27682" name="Gran Kain's Necklace - Stage 5" type="Armor">
@@ -848,11 +847,11 @@
 		<skills>
 			<skill id="46765" level="1" type="ON_EQUIP" /> <!-- Equip Gran Kain's Necklace - Necklace Stage 5 -->
 			<skill id="46766" level="1" type="ON_UNEQUIP" /> <!-- Unequip Gran Kain's Necklace - Necklace Stage 5 -->
-			<skill id="27638" level="1" /> <!-- Gran Kain's Necklace -->
+			<skill id="27634" level="5" /> <!-- Gran Kain's Necklace -->
+			<skill id="27749" level="5" />
 		</skills>
 		<stats>
 			<stat type="mDef">437.0</stat>
-			<stat type="maxMp">131</stat>
 		</stats>
 	</item>
 	<item id="27683" name="Gran Kain's Necklace - Stage 6" type="Armor">
@@ -869,11 +868,11 @@
 		<skills>
 			<skill id="46771" level="1" type="ON_EQUIP" /> <!-- Equip Gran Kain's Necklace - Necklace Stage 6 -->
 			<skill id="46772" level="1" type="ON_UNEQUIP" /> <!-- Unequip Gran Kain's Necklace - Necklace Stage 6 -->
-			<skill id="27639" level="1" /> <!-- Gran Kain's Necklace -->
+			<skill id="27634" level="6" /> <!-- Gran Kain's Necklace -->
+			<skill id="27749" level="6" />
 		</skills>
 		<stats>
 			<stat type="mDef">479.0</stat>
-			<stat type="maxMp">136</stat>
 		</stats>
 	</item>
 	<item id="27684" name="Einhasad's Necklace - Stage 1" type="Armor">
@@ -894,7 +893,6 @@
 		</skills>
 		<stats>
 			<stat type="mDef">292.0</stat>
-			<stat type="maxMp">107</stat>
 		</stats>
 	</item>
 	<item id="27685" name="Einhasad's Necklace - Stage 2" type="Armor">
@@ -911,11 +909,11 @@
 		<skills>
 			<skill id="46741" level="1" type="ON_EQUIP" /> <!-- Equip Einhasad's Necklace - Necklace Stage 2 -->
 			<skill id="46742" level="1" type="ON_UNEQUIP" /> <!-- Unequip Einhasad's Necklace - Necklace Stage 2 -->
-			<skill id="27641" level="1" /> <!-- Einhasad's Necklace -->
+			<skill id="27640" level="2" /> <!-- Einhasad's Necklace -->
+			<skill id="27750" level="2" />
 		</skills>
 		<stats>
 			<stat type="mDef">333.0</stat>
-			<stat type="maxMp">114</stat>
 		</stats>
 	</item>
 	<item id="27686" name="Einhasad's Necklace - Stage 3" type="Armor">
@@ -932,11 +930,11 @@
 		<skills>
 			<skill id="46747" level="1" type="ON_EQUIP" /> <!-- Equip Einhasad's Necklace - Necklace Stage 3 -->
 			<skill id="46748" level="1" type="ON_UNEQUIP" /> <!-- Unequip Einhasad's Necklace - Necklace Stage 3 -->
-			<skill id="27642" level="1" /> <!-- Einhasad's Necklace -->
+			<skill id="27640" level="3" /> <!-- Einhasad's Necklace -->
+			<skill id="27750" level="3" />
 		</skills>
 		<stats>
 			<stat type="mDef">374.0</stat>
-			<stat type="maxMp">121</stat>
 		</stats>
 	</item>
 	<item id="27687" name="Einhasad's Necklace - Stage 4" type="Armor">
@@ -953,11 +951,11 @@
 		<skills>
 			<skill id="46777" level="1" type="ON_EQUIP" /> <!-- Equip Einhasad's Necklace - Necklace Stage 4 -->
 			<skill id="46778" level="1" type="ON_UNEQUIP" /> <!-- Unequip Einhasad's Necklace - Necklace Stage 4 -->
-			<skill id="27643" level="1" /> <!-- Einhasad's Necklace -->
+			<skill id="27640" level="4" /> <!-- Einhasad's Necklace -->
+			<skill id="27750" level="4" />
 		</skills>
 		<stats>
 			<stat type="mDef">407.0</stat>
-			<stat type="maxMp">126</stat>
 		</stats>
 	</item>
 	<item id="27688" name="Einhasad's Necklace - Stage 5" type="Armor">
@@ -974,11 +972,11 @@
 		<skills>
 			<skill id="46783" level="1" type="ON_EQUIP" /> <!-- Equip Einhasad's Necklace - Necklace Stage 5 -->
 			<skill id="46784" level="1" type="ON_UNEQUIP" /> <!-- Unequip Einhasad's Necklace - Necklace Stage 5 -->
-			<skill id="27644" level="1" /> <!-- Einhasad's Necklace -->
+			<skill id="27640" level="5" /> <!-- Einhasad's Necklace -->
+			<skill id="27750" level="5" />
 		</skills>
 		<stats>
 			<stat type="mDef">437.0</stat>
-			<stat type="maxMp">131</stat>
 		</stats>
 	</item>
 	<item id="27689" name="Einhasad's Necklace - Stage 6" type="Armor">
@@ -995,11 +993,11 @@
 		<skills>
 			<skill id="46789" level="1" type="ON_EQUIP" /> <!-- Equip Einhasad's Necklace - Necklace Stage 6 -->
 			<skill id="46790" level="1" type="ON_UNEQUIP" /> <!-- Unequip Einhasad's Necklace - Necklace Stage 6 -->
-			<skill id="27645" level="1" /> <!-- Einhasad's Necklace -->
+			<skill id="27640" level="6" /> <!-- Einhasad's Necklace -->
+			<skill id="27750" level="6" />
 		</skills>
 		<stats>
 			<stat type="mDef">479.0</stat>
-			<stat type="maxMp">136</stat>
 		</stats>
 	</item>
 	<item id="27690" name="Pa'agrio's Earring - Stage 1" type="Armor">
@@ -1020,7 +1018,6 @@
 		</skills>
 		<stats>
 			<stat type="mDef">219.0</stat>
-			<stat type="maxMp">80</stat>
 		</stats>
 	</item>
 	<item id="27691" name="Pa'agrio's Earring - Stage 2" type="Armor">
@@ -1037,11 +1034,11 @@
 		<skills>
 			<skill id="46725" level="1" type="ON_EQUIP" /> <!-- Equip Pa'agrio's Earring - Earring Stage 2 -->
 			<skill id="46726" level="1" type="ON_UNEQUIP" /> <!-- Unequip Pa'agrio's Earring - Earring Stage 2 -->
-			<skill id="27647" level="1" /> <!-- Pa'agrio's Earring -->
+			<skill id="27646" level="2" /> <!-- Pa'agrio's Earring -->
+			<skill id="27751" level="2" />
 		</skills>
 		<stats>
 			<stat type="mDef">250.0</stat>
-			<stat type="maxMp">86</stat>
 		</stats>
 	</item>
 	<item id="27692" name="Pa'agrio's Earring - Stage 3" type="Armor">
@@ -1058,11 +1055,11 @@
 		<skills>
 			<skill id="46731" level="1" type="ON_EQUIP" /> <!-- Equip Pa'agrio's Earring - Earring Stage 3 -->
 			<skill id="46732" level="1" type="ON_UNEQUIP" /> <!-- Unequip Pa'agrio's Earring - Earring Stage 3 -->
-			<skill id="27648" level="1" /> <!-- Pa'agrio's Earring -->
+			<skill id="27646" level="3" /> <!-- Pa'agrio's Earring -->
+			<skill id="27751" level="3" />
 		</skills>
 		<stats>
 			<stat type="mDef">280.0</stat>
-			<stat type="maxMp">91</stat>
 		</stats>
 	</item>
 	<item id="27693" name="Pa'agrio's Earring - Stage 4" type="Armor">
@@ -1079,11 +1076,11 @@
 		<skills>
 			<skill id="46761" level="1" type="ON_EQUIP" /> <!-- Equip Pa'agrio's Earring - Earring Stage 4 -->
 			<skill id="46762" level="1" type="ON_UNEQUIP" /> <!-- Unequip Pa'agrio's Earring - Earring Stage 4 -->
-			<skill id="27649" level="1" /> <!-- Pa'agrio's Earring -->
+			<skill id="27646" level="4" /> <!-- Pa'agrio's Earring -->
+			<skill id="27751" level="4" />
 		</skills>
 		<stats>
 			<stat type="mDef">300.0</stat>
-			<stat type="maxMp">94</stat>
 		</stats>
 	</item>
 	<item id="27694" name="Pa'agrio's Earring - Stage 5" type="Armor">
@@ -1100,11 +1097,11 @@
 		<skills>
 			<skill id="46767" level="1" type="ON_EQUIP" /> <!-- Equip Pa'agrio's Earring - Earring Stage 5 -->
 			<skill id="46768" level="1" type="ON_UNEQUIP" /> <!-- Unequip Pa'agrio's Earring - Earring Stage 5 -->
-			<skill id="27650" level="1" /> <!-- Pa'agrio's Earring -->
+			<skill id="27646" level="5" /> <!-- Pa'agrio's Earring -->
+			<skill id="27751" level="5" />
 		</skills>
 		<stats>
 			<stat type="mDef">320.0</stat>
-			<stat type="maxMp">98</stat>
 		</stats>
 	</item>
 	<item id="27695" name="Pa'agrio's Earring - Stage 6" type="Armor">
@@ -1121,11 +1118,11 @@
 		<skills>
 			<skill id="46773" level="1" type="ON_EQUIP" /> <!-- Equip Pa'agrio's Earring - Earring Stage 6 -->
 			<skill id="46774" level="1" type="ON_UNEQUIP" /> <!-- Unequip Pa'agrio's Earring - Earring Stage 6 -->
-			<skill id="27651" level="1" /> <!-- Pa'agrio's Earring -->
+			<skill id="27646" level="6" /> <!-- Pa'agrio's Earring -->
+			<skill id="27751" level="6" />
 		</skills>
 		<stats>
 			<stat type="mDef">359.0</stat>
-			<stat type="maxMp">102</stat>
 		</stats>
 	</item>
 	<item id="27696" name="Eva's Earring - Stage 1" type="Armor">
@@ -1146,7 +1143,6 @@
 		</skills>
 		<stats>
 			<stat type="mDef">219.0</stat>
-			<stat type="maxMp">80</stat>
 		</stats>
 	</item>
 	<item id="27697" name="Eva's Earring - Stage 2" type="Armor">
@@ -1163,11 +1159,11 @@
 		<skills>
 			<skill id="46743" level="1" type="ON_EQUIP" /> <!-- Equip Eva's Earring - Earring Stage 2 -->
 			<skill id="46744" level="1" type="ON_UNEQUIP" /> <!-- Unequip Eva's Earring - Earring Stage 2 -->
-			<skill id="27653" level="1" /> <!-- Eva's Earring -->
+			<skill id="27652" level="2" /> <!-- Eva's Earring -->
+			<skill id="27752" level="2" />
 		</skills>
 		<stats>
 			<stat type="mDef">250.0</stat>
-			<stat type="maxMp">86</stat>
 		</stats>
 	</item>
 	<item id="27698" name="Eva's Earring - Stage 3" type="Armor">
@@ -1184,11 +1180,11 @@
 		<skills>
 			<skill id="46749" level="1" type="ON_EQUIP" /> <!-- Equip Eva's Earring - Earring Stage 3 -->
 			<skill id="46750" level="1" type="ON_UNEQUIP" /> <!-- Unequip Eva's Earring - Earring Stage 3 -->
-			<skill id="27654" level="1" /> <!-- Eva's Earring -->
+			<skill id="27652" level="3" /> <!-- Eva's Earring -->
+			<skill id="27752" level="3" />
 		</skills>
 		<stats>
 			<stat type="mDef">280.0</stat>
-			<stat type="maxMp">91</stat>
 		</stats>
 	</item>
 	<item id="27699" name="Eva's Earring - Stage 4" type="Armor">
@@ -1205,11 +1201,11 @@
 		<skills>
 			<skill id="46779" level="1" type="ON_EQUIP" /> <!-- Equip Eva's Earring - Earring Stage 4 -->
 			<skill id="46780" level="1" type="ON_UNEQUIP" /> <!-- Unequip Eva's Earring - Earring Stage 4 -->
-			<skill id="27655" level="1" /> <!-- Eva's Earring -->
+			<skill id="27652" level="4" /> <!-- Eva's Earring -->
+			<skill id="27752" level="4" />
 		</skills>
 		<stats>
 			<stat type="mDef">300.0</stat>
-			<stat type="maxMp">94</stat>
 		</stats>
 	</item>
 </list>

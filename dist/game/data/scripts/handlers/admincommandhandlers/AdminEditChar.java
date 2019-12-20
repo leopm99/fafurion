@@ -54,7 +54,6 @@ import org.l2jmobius.gameserver.network.GameClient;
 import org.l2jmobius.gameserver.network.SystemMessageId;
 import org.l2jmobius.gameserver.network.serverpackets.ExSubjobInfo;
 import org.l2jmobius.gameserver.network.serverpackets.ExUserInfoInvenWeight;
-import org.l2jmobius.gameserver.network.serverpackets.ExVoteSystemInfo;
 import org.l2jmobius.gameserver.network.serverpackets.GMViewItemList;
 import org.l2jmobius.gameserver.network.serverpackets.NpcHtmlMessage;
 import org.l2jmobius.gameserver.network.serverpackets.PartySmallWindowAll;
@@ -340,8 +339,6 @@ public class AdminEditChar implements IAdminCommandHandler
 					final PlayerInstance player = (PlayerInstance) target;
 					player.setRecomHave(recVal);
 					player.broadcastUserInfo();
-					player.sendPacket(new UserInfo(player));
-					player.sendPacket(new ExVoteSystemInfo(player));
 					player.sendMessage("A GM changed your Recommend points to " + recVal);
 					activeChar.sendMessage(player.getName() + "'s Recommend changed to " + recVal);
 				}
@@ -396,9 +393,9 @@ public class AdminEditChar implements IAdminCommandHandler
 							case 132: // Soul Hound (Male)
 							case 157: // Tyrr Doombringer
 							{
-								if (player.getAppearance().getSex())
+								if (player.getAppearance().isFemale())
 								{
-									player.getAppearance().setSex(false);
+									player.getAppearance().setMale();
 								}
 								break;
 							}
@@ -410,9 +407,9 @@ public class AdminEditChar implements IAdminCommandHandler
 							case 134: // Trickster
 							case 165: // Yul Trickster
 							{
-								if (!player.getAppearance().getSex())
+								if (!player.getAppearance().isFemale())
 								{
-									player.getAppearance().setSex(true);
+									player.getAppearance().setFemale();
 								}
 								break;
 							}
@@ -420,7 +417,7 @@ public class AdminEditChar implements IAdminCommandHandler
 					}
 					if (player.getRace() == Race.ERTHEIA)
 					{
-						player.getAppearance().setSex(true);
+						player.getAppearance().setFemale();
 					}
 					
 					final String newclass = ClassListData.getInstance().getClass(player.getClassId()).getClassName();
@@ -493,7 +490,7 @@ public class AdminEditChar implements IAdminCommandHandler
 				{
 					return false;
 				}
-				if (CharNameTable.getInstance().getIdByName(val) > 0)
+				if (CharNameTable.getInstance().doesCharNameExist(val))
 				{
 					BuilderUtil.sendSysMessage(activeChar, "Warning, player " + val + " already exists");
 					return false;
@@ -544,7 +541,14 @@ public class AdminEditChar implements IAdminCommandHandler
 			{
 				return false;
 			}
-			player.getAppearance().setSex(player.getAppearance().getSex() ? false : true);
+			if (player.getAppearance().isFemale())
+			{
+				player.getAppearance().setMale();
+			}
+			else
+			{
+				player.getAppearance().setFemale();
+			}
 			player.sendMessage("Your gender has been changed by a GM");
 			player.broadcastUserInfo();
 		}
@@ -1159,7 +1163,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		adminReply.replace("%xp%", String.valueOf(player.getExp()));
 		adminReply.replace("%sp%", String.valueOf(player.getSp()));
 		adminReply.replace("%class%", ClassListData.getInstance().getClass(player.getClassId()).getClientCode());
-		adminReply.replace("%ordinal%", String.valueOf(player.getClassId().ordinal()));
+		adminReply.replace("%ordinal%", String.valueOf(player.getClassId().getId()));
 		adminReply.replace("%classid%", String.valueOf(player.getClassId()));
 		adminReply.replace("%baseclass%", ClassListData.getInstance().getClass(player.getBaseClass()).getClientCode());
 		adminReply.replace("%x%", String.valueOf(player.getX()));
@@ -1192,6 +1196,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		adminReply.replace("%access%", player.getAccessLevel().getLevel() + " (" + player.getAccessLevel().getName() + ")");
 		adminReply.replace("%account%", player.getAccountName());
 		adminReply.replace("%ip%", ip);
+		adminReply.replace("%protocol%", String.valueOf(player.getClient() != null ? player.getClient().getProtocolVersion() : "NULL"));
 		adminReply.replace("%hwid%", (player.getClient() != null) && (player.getClient().getHardwareInfo() != null) ? player.getClient().getHardwareInfo().getMacAddress() : "Unknown");
 		adminReply.replace("%ai%", player.getAI().getIntention().name());
 		adminReply.replace("%inst%", player.isInInstance() ? "<tr><td>InstanceId:</td><td><a action=\"bypass -h admin_instance_spawns " + player.getInstanceId() + "\">" + player.getInstanceId() + "</a></td></tr>" : "");

@@ -67,7 +67,6 @@ public class FeedableBeasts extends AbstractNpcAI
 	// @formatter:on
 	
 	private static final Map<Integer, Integer> MAD_COW_POLYMORPH = new HashMap<>(6);
-	
 	static
 	{
 		MAD_COW_POLYMORPH.put(21824, 21468);
@@ -120,8 +119,8 @@ public class FeedableBeasts extends AbstractNpcAI
 		NpcStringId.ANIMALS_NEED_LOVE_TOO
 	};
 	
-	private final Map<Integer, Integer> _feedInfo = new ConcurrentHashMap<>();
-	private static Map<Integer, GrowthCapableMob> GROWTH_CAPABLE_MOBS = new HashMap<>();
+	private static final Map<Integer, Integer> _feedInfo = new ConcurrentHashMap<>();
+	private static final Map<Integer, GrowthCapableMob> GROWTH_CAPABLE_MOBS = new HashMap<>();
 	
 	// all mobs that grow by eating
 	private static class GrowthCapableMob
@@ -553,7 +552,7 @@ public class FeedableBeasts extends AbstractNpcAI
 			// rare random talk...
 			if (getRandom(20) == 0)
 			{
-				final NpcStringId message = TEXT[growthLevel][getRandom(TEXT[growthLevel].length)];
+				final NpcStringId message = getRandomEntry(TEXT[growthLevel]);
 				npc.broadcastSay(ChatType.NPC_GENERAL, message, message.getParamCount() > 0 ? caster.getName() : null);
 			}
 			
@@ -576,7 +575,7 @@ public class FeedableBeasts extends AbstractNpcAI
 			if (skillId == beast.getFoodType())
 			{
 				beast.onReceiveFood();
-				final NpcStringId message = TAMED_TEXT[getRandom(TAMED_TEXT.length)];
+				final NpcStringId message = getRandomEntry(TAMED_TEXT);
 				npc.broadcastSay(ChatType.NPC_GENERAL, message, message.getParamCount() > 0 ? caster.getName() : null);
 			}
 		}

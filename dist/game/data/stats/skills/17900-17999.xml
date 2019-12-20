@@ -201,10 +201,12 @@
 	<skill id="17913" toLevel="1" name="Supreme Windy Quick Healing Potion">
 		<!-- Restores 5000 HP and restores CP with remaining power. No duration. -->
 		<icon>icon.etc_potion_gold_i00</icon>
+		<operateType>A1</operateType>
 		<blockedInOlympiad>true</blockedInOlympiad>
 		<isMagic>2</isMagic> <!-- Static Skill -->
 		<magicLvl>1</magicLvl>
-		<operateType>A1</operateType>
+		<itemConsumeId>37894</itemConsumeId>
+		<itemConsumeCount>1</itemConsumeCount>
 		<reuseDelay>500</reuseDelay>
 		<magicCriticalRate>5</magicCriticalRate>
 		<hitCancelTime>0</hitCancelTime>
@@ -1250,7 +1252,7 @@
 		<operateType>P</operateType>
 		<magicCriticalRate>5</magicCriticalRate>
 		<effects>
-			<effect name="CriticalDamage">
+			<effect name="SkillCriticalDamage">
 				<amount>10</amount>
 				<mode>PER</mode>
 			</effect>
@@ -1275,6 +1277,7 @@
 		<effectPoint>100</effectPoint>
 		<reuseDelay>1200000</reuseDelay>
 		<magicCriticalRate>5</magicCriticalRate>
+		<abnormalTime>15</abnormalTime>
 		<effects>
 			<effect name="MagicalDefence">
 				<amount>25</amount>
@@ -1293,6 +1296,7 @@
 		<effectPoint>100</effectPoint>
 		<reuseDelay>1200000</reuseDelay>
 		<magicCriticalRate>5</magicCriticalRate>
+		<abnormalTime>15</abnormalTime>
 		<effects>
 			<effect name="ResistAbnormalByCategory">
 				<amount>25</amount>

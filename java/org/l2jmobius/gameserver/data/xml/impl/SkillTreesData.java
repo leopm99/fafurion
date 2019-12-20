@@ -194,7 +194,7 @@ public class SkillTreesData implements IXmlReader
 						if (attr != null)
 						{
 							cId = Integer.parseInt(attr.getNodeValue());
-							classId = ClassId.values()[cId];
+							classId = ClassId.getClassId(cId);
 						}
 						else
 						{
@@ -219,7 +219,7 @@ public class SkillTreesData implements IXmlReader
 							parentClassId = Integer.parseInt(attr.getNodeValue());
 							if ((cId > -1) && (cId != parentClassId) && (parentClassId > -1) && !_parentClassMap.containsKey(classId))
 							{
-								_parentClassMap.put(classId, ClassId.values()[parentClassId]);
+								_parentClassMap.put(classId, ClassId.getClassId(parentClassId));
 							}
 						}
 						
@@ -1571,7 +1571,7 @@ public class SkillTreesData implements IXmlReader
 			}
 			tempMap.clear();
 			Arrays.sort(array);
-			_skillsByClassIdHashCodes.put(cls.ordinal(), array);
+			_skillsByClassIdHashCodes.put(cls.getId(), array);
 		}
 		
 		// Race specific skills from Fishing and Transformation skill trees.
@@ -1683,7 +1683,7 @@ public class SkillTreesData implements IXmlReader
 		final int maxLvl = SkillData.getInstance().getMaxLevel(skill.getId());
 		final long hashCode = SkillData.getSkillHashCode(skill.getId(), Math.min(skill.getLevel(), maxLvl));
 		
-		if (Arrays.binarySearch(_skillsByClassIdHashCodes.get(player.getClassId().ordinal()), hashCode) >= 0)
+		if (Arrays.binarySearch(_skillsByClassIdHashCodes.get(player.getClassId().getId()), hashCode) >= 0)
 		{
 			return true;
 		}

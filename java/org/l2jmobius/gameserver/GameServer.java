@@ -29,9 +29,9 @@ import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 import org.l2jmobius.Config;
-import org.l2jmobius.Server;
 import org.l2jmobius.commons.concurrent.ThreadPool;
 import org.l2jmobius.commons.database.DatabaseFactory;
+import org.l2jmobius.commons.enums.ServerMode;
 import org.l2jmobius.commons.util.DeadLockDetector;
 import org.l2jmobius.gameserver.cache.HtmCache;
 import org.l2jmobius.gameserver.data.sql.impl.AnnouncementsTable;
@@ -51,7 +51,6 @@ import org.l2jmobius.gameserver.data.xml.impl.BuyListData;
 import org.l2jmobius.gameserver.data.xml.impl.CategoryData;
 import org.l2jmobius.gameserver.data.xml.impl.ClanHallData;
 import org.l2jmobius.gameserver.data.xml.impl.ClanMasteryData;
-import org.l2jmobius.gameserver.data.xml.impl.ClanRewardData;
 import org.l2jmobius.gameserver.data.xml.impl.ClanShopData;
 import org.l2jmobius.gameserver.data.xml.impl.ClassListData;
 import org.l2jmobius.gameserver.data.xml.impl.CombinationItemsData;
@@ -183,7 +182,6 @@ public class GameServer
 	public GameServer() throws Exception
 	{
 		final long serverLoadStart = System.currentTimeMillis();
-		Server.serverMode = Server.MODE_GAMESERVER;
 		
 		// GUI
 		if (!GraphicsEnvironment.isHeadless())
@@ -193,7 +191,7 @@ public class GameServer
 		}
 		
 		// Create log folder
-		final File logFolder = new File(Config.DATAPACK_ROOT, "log");
+		final File logFolder = new File(".", "log");
 		logFolder.mkdir();
 		
 		// Create input stream for log file -- or store file data into memory
@@ -203,7 +201,8 @@ public class GameServer
 		}
 		
 		// Initialize config
-		Config.load();
+		Config.load(ServerMode.GAME);
+		
 		printSection("Database");
 		DatabaseFactory.init();
 		
@@ -242,7 +241,6 @@ public class GameServer
 		SecondaryAuthData.getInstance();
 		CombinationItemsData.getInstance();
 		SayuneData.getInstance();
-		ClanRewardData.getInstance();
 		DailyMissionHandler.getInstance().executeScript();
 		DailyMissionData.getInstance();
 		

@@ -494,19 +494,14 @@
 			<value level="5">100</value>
 			<value level="6">102</value>
 			<value level="7">104</value>
-			<value level="8">104</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-			<value level="9">104</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-			<value level="10">104</value> <!-- FIXME: AUTO GENERATED LEVEL -->
+			<value level="8">106</value>
+			<value level="9">108</value>
+			<value level="10">110</value>
 		</magicLvl>
 		<operateType>P</operateType>
 		<effects>
 			<effect name="SkillCritical">
 				<stat>STR</stat>
-				<weaponType>
-					<item>BOW</item>
-					<item>CROSSBOW</item>
-					<item>TWOHANDCROSSBOW</item>
-				</weaponType>
 			</effect>
 			<effect name="PAtk">
 				<amount>10</amount>
@@ -521,9 +516,9 @@
 					<value level="5">2850</value>
 					<value level="6">3023</value>
 					<value level="7">3208</value>
-					<value level="8">3208</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-					<value level="9">3208</value> <!-- FIXME: AUTO GENERATED LEVEL -->
-					<value level="10">3208</value> <!-- FIXME: AUTO GENERATED LEVEL -->
+					<value level="8">3403</value>
+					<value level="9">3610</value>
+					<value level="10">3830</value>
 				</amount>
 				<mode>DIFF</mode>
 				<weaponType>
@@ -1433,7 +1428,7 @@
 					<value fromLevel="7" toLevel="13" fromSubLevel="1001" toSubLevel="1020">{base + (base / 100 * subIndex)}</value>
 				</power>
 				<criticalChance>
-					<value fromLevel="1" toLevel="13">5</value>
+					<value fromLevel="1" toLevel="13">60</value>
 					<value fromLevel="7" toLevel="13" fromSubLevel="2001" toSubLevel="2020">{base + (base / 100 * subIndex)}</value>
 				</criticalChance>
 				<pDefMod>
@@ -1530,7 +1525,7 @@
 					<value fromLevel="7" toLevel="13" fromSubLevel="1001" toSubLevel="1020">{base + (base / 100 * subIndex)}</value>
 				</power>
 				<criticalChance>
-					<value fromLevel="1" toLevel="13">10</value>
+					<value fromLevel="1" toLevel="13">60</value>
 					<value fromLevel="7" toLevel="13" fromSubLevel="2001" toSubLevel="2020">{base + (base / 100 * subIndex)}</value>
 				</criticalChance>
 				<pDefMod>
@@ -1765,7 +1760,7 @@
 					<value fromLevel="4" toLevel="11" fromSubLevel="1001" toSubLevel="1020">{base + (base / 100 * subIndex)}</value>
 				</power>
 				<criticalChance>
-					<value fromLevel="1" toLevel="11">5</value>
+					<value fromLevel="1" toLevel="11">60</value>
 					<value fromLevel="4" toLevel="11" fromSubLevel="3001" toSubLevel="3020">{base + (base / 100 * subIndex)}</value>
 				</criticalChance>
 				<overHit>true</overHit>
@@ -1874,7 +1869,7 @@
 				</power>
 				<overHit>true</overHit>
 				<criticalChance>
-					<value fromLevel="1" toLevel="13">5</value>
+					<value fromLevel="1" toLevel="13">60</value>
 					<value fromLevel="7" toLevel="13" fromSubLevel="3001" toSubLevel="3020">{base + (base / 100 * subIndex)}</value>
 				</criticalChance>
 			</effect>
@@ -1892,8 +1887,8 @@
 		<icon>icon.skill10771</icon>
 		<operateType>A1</operateType>
 		<affectLimit>5-12</affectLimit>
-		<affectRange>900</affectRange>
-		<fenRange>0,0,900,90</fenRange>
+		<affectRange>1100</affectRange>
+		<fanRange>0;0;1100;90</fanRange>
 		<magicCriticalRate>5</magicCriticalRate>
 		<magicLvl>
 			<value level="1">85</value>
@@ -1926,7 +1921,7 @@
 			<value level="13">175</value>
 		</mpConsume>
 		<nextAction>ATTACK</nextAction>
-		<castRange>1100</castRange>
+		<castRange>900</castRange>
 		<effectRange>1500</effectRange>
 		<hitTime>2900</hitTime>
 		<coolTime>350</coolTime>
@@ -1946,7 +1941,6 @@
 			<value level="13">-729</value>
 		</effectPoint>
 		<reuseDelay>7000</reuseDelay>
-		<fanRange>0;0;900;90</fanRange>
 		<targetType>ENEMY</targetType>
 		<affectScope>FAN</affectScope>
 		<affectObject>NOT_FRIEND</affectObject>
@@ -1979,7 +1973,7 @@
 				</power>
 				<overHit>true</overHit>
 				<criticalChance>
-					<value fromLevel="1" toLevel="13">5</value>
+					<value fromLevel="1" toLevel="13">60</value>
 					<value fromLevel="7" toLevel="13" fromSubLevel="2001" toSubLevel="2020">{base + (base / 100 * subIndex)}</value>
 				</criticalChance>
 				<pDefMod>
@@ -2079,7 +2073,7 @@
 				</power>
 				<overHit>true</overHit>
 				<criticalChance>
-					<value fromLevel="1" toLevel="13">5</value>
+					<value fromLevel="1" toLevel="13">60</value>
 					<value fromLevel="7" toLevel="13" fromSubLevel="2001" toSubLevel="2020">{base + (base / 100 * subIndex)}</value>
 				</criticalChance>
 				<pDefMod>
@@ -2569,8 +2563,8 @@
 		<coolTime>500</coolTime>
 		<effectPoint>-706</effectPoint>
 		<reuseDelay>30000</reuseDelay>
+		<staticReuse>true</staticReuse>
 		<magicLvl>93</magicLvl>
-		<isMagic>4</isMagic>
 		<targetType>GROUND</targetType>
 		<affectScope>RANGE</affectScope>
 		<affectObject>NOT_FRIEND</affectObject>
@@ -2595,7 +2589,7 @@
 					<value fromLevel="1" toLevel="6" fromSubLevel="1001" toSubLevel="1020">{base + (base / 100 * subIndex)}</value>
 				</power>
 				<criticalChance>
-					<value fromLevel="1" toLevel="6">5</value>
+					<value fromLevel="1" toLevel="6">60</value>
 					<value fromLevel="1" toLevel="6" fromSubLevel="2001" toSubLevel="2020">{base + (base / 100 * subIndex)}</value>
 				</criticalChance>
 				<pDefMod>

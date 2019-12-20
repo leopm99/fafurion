@@ -30,9 +30,9 @@ import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 import org.l2jmobius.Config;
-import org.l2jmobius.Server;
 import org.l2jmobius.commons.database.DatabaseBackup;
 import org.l2jmobius.commons.database.DatabaseFactory;
+import org.l2jmobius.commons.enums.ServerMode;
 import org.l2jmobius.gameserver.network.loginserverpackets.game.ServerStatus;
 import org.l2jmobius.loginserver.network.ClientNetworkManager;
 import org.l2jmobius.loginserver.ui.Gui;
@@ -62,8 +62,6 @@ public class LoginServer
 	
 	private LoginServer() throws Exception
 	{
-		Server.serverMode = Server.MODE_LOGINSERVER;
-		
 		// GUI
 		if (!GraphicsEnvironment.isHeadless())
 		{
@@ -87,7 +85,7 @@ public class LoginServer
 		}
 		
 		// Load Config
-		Config.load();
+		Config.load(ServerMode.LOGIN);
 		
 		// Prepare Database
 		DatabaseFactory.init();

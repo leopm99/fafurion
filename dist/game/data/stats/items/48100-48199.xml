@@ -833,6 +833,7 @@
 		<set name="is_depositable" val="false" />
 		<set name="is_sellable" val="false" />
 		<set name="is_stackable" val="true" />
+		<set name="is_questitem" val="true" />
 	</item>
 	<item id="48163" name="Dimensional Energy Fragment" type="EtcItem">
 		<!-- Fragments of the dimensional energy obtained in the Dimensional Rift and Dimensional Crack after receiving Tarti's advice. Gather them and take them to Tarti. -->
@@ -844,6 +845,7 @@
 		<set name="is_depositable" val="false" />
 		<set name="is_sellable" val="false" />
 		<set name="is_stackable" val="true" />
+		<set name="is_questitem" val="true" />
 	</item>
 	<item id="48164" name="Dimensional Exploration Report" type="EtcItem">
 		<!-- A report by Tarti on the status of the dimensional exploration. -->
@@ -855,6 +857,7 @@
 		<set name="is_depositable" val="false" />
 		<set name="is_sellable" val="false" />
 		<set name="is_stackable" val="true" />
+		<set name="is_questitem" val="true" />
 	</item>
 	<item id="48165" name="Clues of Liberty" type="EtcItem">
 		<!-- Proof obtained after defeating a giant who, under the orders of Mimir, came to find the Giant Trackers who planned to betray the giants. -->
@@ -926,7 +929,7 @@
 		<set name="immediate_effect" val="true" />
 		<set name="material" val="PAPER" />
 		<set name="weight" val="1" />
-		<set name="is_questitem" val="true" />
+		<set name="is_questitem" val="false" />
 		<set name="is_tradable" val="false" />
 		<set name="is_dropable" val="false" />
 		<set name="is_destroyable" val="false" />
@@ -973,8 +976,10 @@
 		<set name="material" val="PAPER" />
 		<set name="weight" val="10" />
 		<set name="is_tradable" val="false" />
+		<set name="is_mailable" val="false" />
 		<set name="is_dropable" val="false" />
 		<set name="is_destroyable" val="false" />
+		<set name="is_private_storeable" val="false" />
 		<set name="is_depositable" val="false" />
 		<set name="is_sellable" val="false" />
 		<set name="is_stackable" val="true" />
@@ -984,7 +989,7 @@
 		<set name="immediate_effect" val="true" />
 		<set name="commissionItemType" val="SCROLL_ENCHANT_WEAPON" />
 		<skills>
-			<skill id="9185" level="1" /> <!-- Scroll: Enchant Weapon (R-grade) -->
+			<skill id="35099" level="1" /> <!-- Practice Weapon Enchant Scroll -->
 		</skills>
 	</item>
 	<item id="48172" name="Herphah's Mission List" type="EtcItem">
@@ -1376,6 +1381,7 @@
 		<set name="is_destroyable" val="false" />
 		<set name="is_depositable" val="false" />
 		<set name="is_sellable" val="false" />
+		<set name="damage_range" val="0;0;66;120" />
 		<skills>
 			<skill id="3599" level="1" /> <!-- Polearm Multi-attack -->
 		</skills>

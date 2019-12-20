@@ -179,45 +179,38 @@ public class TradeList
 	{
 		if (_locked)
 		{
-			LOGGER.warning(_owner.getName() + ": Attempt to modify locked TradeList!");
 			return null;
 		}
 		
 		final WorldObject o = World.getInstance().findObject(objectId);
-		if (!o.isItem())
+		if (!(o instanceof ItemInstance))
 		{
-			LOGGER.warning(_owner.getName() + ": Trying to add something other than an item!");
 			return null;
 		}
 		
 		final ItemInstance item = (ItemInstance) o;
 		if (!(item.isTradeable() || (_owner.isGM() && Config.GM_TRADE_RESTRICTED_ITEMS)) || item.isQuestItem())
 		{
-			LOGGER.warning(_owner.getName() + ": Attempt to add a restricted item!");
 			return null;
 		}
 		
 		if (!_owner.getInventory().canManipulateWithItemId(item.getId()))
 		{
-			LOGGER.warning(_owner.getName() + ": Attempt to add an item that can't manipualte!");
 			return null;
 		}
 		
 		if ((count <= 0) || (count > item.getCount()))
 		{
-			LOGGER.warning(_owner.getName() + ": Attempt to add an item with invalid item count!");
 			return null;
 		}
 		
 		if (!item.isStackable() && (count > 1))
 		{
-			LOGGER.warning(_owner.getName() + ": Attempt to add non-stackable item to TradeList with count > 1!");
 			return null;
 		}
 		
 		if ((MAX_ADENA / count) < price)
 		{
-			LOGGER.warning(_owner.getName() + ": Attempt to overflow adena !");
 			return null;
 		}
 		
@@ -225,7 +218,6 @@ public class TradeList
 		{
 			if (checkitem.getObjectId() == objectId)
 			{
-				LOGGER.warning(_owner.getName() + ": Attempt to add an item that is already present!");
 				return null;
 			}
 		}

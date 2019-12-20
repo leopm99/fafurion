@@ -55,6 +55,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
+import org.l2jmobius.commons.enums.IdFactoryType;
+import org.l2jmobius.commons.enums.ServerMode;
 import org.l2jmobius.commons.util.IXmlReader;
 import org.l2jmobius.commons.util.PropertiesParser;
 import org.l2jmobius.commons.util.StringUtil;
@@ -145,6 +147,8 @@ public class Config
 	// --------------------------------------------------
 	// Variable Definitions
 	// --------------------------------------------------
+	public static ServerMode SERVER_MODE = ServerMode.NONE;
+	
 	public static boolean ENABLE_ATTENDANCE_REWARDS;
 	public static boolean PREMIUM_ONLY_ATTENDANCE_REWARDS;
 	public static boolean ATTENDANCE_REWARDS_SHARE_ACCOUNT;
@@ -783,17 +787,16 @@ public class Config
 	public static int MAX_REPUTATION;
 	public static int REPUTATION_INCREASE;
 	
-	public enum IdFactoryType
-	{
-		BitSet,
-		Stack
-	}
-	
 	public static IdFactoryType IDFACTORY_TYPE;
 	public static boolean BAD_ID_CHECKING;
 	
 	public static int[] ENCHANT_BLACKLIST;
 	public static boolean DISABLE_OVER_ENCHANTING;
+	public static int MIN_ARMOR_ENCHANT_ANNOUNCE;
+	public static int MIN_WEAPON_ENCHANT_ANNOUNCE;
+	public static int MAX_ARMOR_ENCHANT_ANNOUNCE;
+	public static int MAX_WEAPON_ENCHANT_ANNOUNCE;
+	
 	public static int[] AUGMENTATION_BLACKLIST;
 	public static boolean ALT_ALLOW_AUGMENT_PVP_ITEMS;
 	public static boolean ALT_ALLOW_AUGMENT_TRADE;
@@ -899,6 +902,11 @@ public class Config
 	public static int HELIOS_SPAWN_RANDOM;
 	public static int HELIOS_MIN_PLAYER;
 	public static int HELIOS_MIN_PLAYER_LVL;
+	
+	// Ramona
+	public static int RAMONA_SPAWN_INTERVAL;
+	public static int RAMONA_SPAWN_RANDOM;
+	public static int RAMONA_MIN_PLAYER;
 	
 	// Fafurion
 	public static int FAFURION_WAIT_TIME;
@@ -1153,6 +1161,7 @@ public class Config
 	public static Map<ClassId, Float> PVE_BLOW_SKILL_DEFENCE_MULTIPLIERS = new ConcurrentHashMap<>();
 	public static Map<ClassId, Float> PVP_BLOW_SKILL_DEFENCE_MULTIPLIERS = new ConcurrentHashMap<>();
 	public static Map<ClassId, Float> PLAYER_HEALING_SKILL_MULTIPLIERS = new ConcurrentHashMap<>();
+	public static Map<ClassId, Float> SKILL_MASTERY_CHANCE_MULTIPLIERS = new ConcurrentHashMap<>();
 	public static boolean MULTILANG_ENABLE;
 	public static List<String> MULTILANG_ALLOWED = new ArrayList<>();
 	public static String MULTILANG_DEFAULT;
@@ -1295,10 +1304,12 @@ public class Config
 	/**
 	 * This class initializes all global variables for configuration.<br>
 	 * If the key doesn't appear in properties file, a default value is set by this class. {@link #SERVER_CONFIG_FILE} (properties file) for configuring your server.
+	 * @param serverMode
 	 */
-	public static void load()
+	public static void load(ServerMode serverMode)
 	{
-		if (Server.serverMode == Server.MODE_GAMESERVER)
+		SERVER_MODE = serverMode;
+		if (SERVER_MODE == ServerMode.GAME)
 		{
 			FLOOD_PROTECTOR_USE_ITEM = new FloodProtectorConfig("UseItemFloodProtector");
 			FLOOD_PROTECTOR_ROLL_DICE = new FloodProtectorConfig("RollDiceFloodProtector");
@@ -1796,14 +1807,17 @@ public class Config
 			}
 			Arrays.sort(ENCHANT_BLACKLIST);
 			DISABLE_OVER_ENCHANTING = Character.getBoolean("DisableOverEnchanting", true);
+			MIN_ARMOR_ENCHANT_ANNOUNCE = Character.getInt("MinimumArmorEnchantAnnounce", 6);
+			MIN_WEAPON_ENCHANT_ANNOUNCE = Character.getInt("MinimumWeaponEnchantAnnounce", 7);
+			MAX_ARMOR_ENCHANT_ANNOUNCE = Character.getInt("MaximumArmorEnchantAnnounce", 30);
+			MAX_WEAPON_ENCHANT_ANNOUNCE = Character.getInt("MaximumWeaponEnchantAnnounce", 30);
+			
 			String[] array = Character.getString("AugmentationBlackList", "6656,6657,6658,6659,6660,6661,6662,8191,10170,10314,13740,13741,13742,13743,13744,13745,13746,13747,13748,14592,14593,14594,14595,14596,14597,14598,14599,14600,14664,14665,14666,14667,14668,14669,14670,14671,14672,14801,14802,14803,14804,14805,14806,14807,14808,14809,15282,15283,15284,15285,15286,15287,15288,15289,15290,15291,15292,15293,15294,15295,15296,15297,15298,15299,16025,16026,21712,22173,22174,22175").split(",");
 			AUGMENTATION_BLACKLIST = new int[array.length];
-			
 			for (int i = 0; i < array.length; i++)
 			{
 				AUGMENTATION_BLACKLIST[i] = Integer.parseInt(array[i]);
 			}
-			
 			Arrays.sort(AUGMENTATION_BLACKLIST);
 			ALT_ALLOW_AUGMENT_PVP_ITEMS = Character.getBoolean("AltAllowAugmentPvPItems", false);
 			ALT_ALLOW_AUGMENT_TRADE = Character.getBoolean("AltAllowAugmentTrade", false);
@@ -1937,7 +1951,7 @@ public class Config
 			// Load IdFactory config file (if exists)
 			final PropertiesParser IdFactory = new PropertiesParser(IDFACTORY_CONFIG_FILE);
 			
-			IDFACTORY_TYPE = IdFactory.getEnum("IDFactory", IdFactoryType.class, IdFactoryType.BitSet);
+			IDFACTORY_TYPE = IdFactory.getEnum("IDFactory", IdFactoryType.class, IdFactoryType.BITSET);
 			BAD_ID_CHECKING = IdFactory.getBoolean("BadIdChecking", true);
 			
 			// Load General config file (if exists)
@@ -2487,6 +2501,10 @@ public class Config
 			HELIOS_SPAWN_RANDOM = GrandBossSettings.getInt("RandomOfHeliosSpawn", 72);
 			HELIOS_MIN_PLAYER = GrandBossSettings.getInt("HeliosMinPlayers", 70);
 			HELIOS_MIN_PLAYER_LVL = GrandBossSettings.getInt("HeliosMinPlayerLvl", 102);
+			
+			RAMONA_SPAWN_INTERVAL = GrandBossSettings.getInt("IntervalOfRamonaSpawn", 72);
+			RAMONA_SPAWN_RANDOM = GrandBossSettings.getInt("RandomOfRamonaSpawn", 48);
+			RAMONA_MIN_PLAYER = GrandBossSettings.getInt("RamonaMinPlayers", 7);
 			
 			FAFURION_WAIT_TIME = GrandBossSettings.getInt("FafurionWaitTime", 10);
 			FAFURION_SPAWN_INTERVAL = GrandBossSettings.getInt("IntervalOfFafurionSpawn", 264);
@@ -3056,6 +3074,20 @@ public class Config
 					}
 				}
 			}
+			final String[] skillMasteryChanceMultipliers = ClassBalance.getString("SkillMasteryChanceMultipliers", "").trim().split(";");
+			SKILL_MASTERY_CHANCE_MULTIPLIERS.clear();
+			if (skillMasteryChanceMultipliers.length > 0)
+			{
+				for (String info : skillMasteryChanceMultipliers)
+				{
+					final String[] classInfo = info.trim().split("[*]");
+					if (classInfo.length == 2)
+					{
+						final String id = classInfo[0].trim();
+						SKILL_MASTERY_CHANCE_MULTIPLIERS.put(Util.isDigit(id) ? ClassId.getClassId(Integer.parseInt(id)) : Enum.valueOf(ClassId.class, id), Float.parseFloat(classInfo[1].trim()));
+					}
+				}
+			}
 			
 			// Load CommunityBoard config file (if exists)
 			final PropertiesParser CommunityBoard = new PropertiesParser(CUSTOM_COMMUNITY_BOARD_CONFIG_FILE);
@@ -3459,7 +3491,7 @@ public class Config
 			
 			L2WALKER_PROTECTION = WalkerBotProtection.getBoolean("L2WalkerProtection", false);
 		}
-		else if (Server.serverMode == Server.MODE_LOGINSERVER)
+		else if (SERVER_MODE == ServerMode.LOGIN)
 		{
 			final PropertiesParser ServerSettings = new PropertiesParser(LOGIN_CONFIG_FILE);
 			

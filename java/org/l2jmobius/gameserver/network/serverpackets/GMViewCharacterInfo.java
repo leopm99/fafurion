@@ -58,7 +58,7 @@ public class GMViewCharacterInfo implements IClientOutgoingPacket
 		packet.writeD(_player.getObjectId());
 		packet.writeS(_player.getName());
 		packet.writeD(_player.getRace().ordinal());
-		packet.writeD(_player.getAppearance().getSex() ? 1 : 0);
+		packet.writeD(_player.getAppearance().isFemale() ? 1 : 0);
 		packet.writeD(_player.getClassId().getId());
 		packet.writeD(_player.getLevel());
 		packet.writeQ(_player.getExp());
@@ -90,7 +90,7 @@ public class GMViewCharacterInfo implements IClientOutgoingPacket
 			packet.writeD(_player.getInventory().getPaperdollItemDisplayId(slot));
 		}
 		
-		for (int slot : getPaperdollOrder())
+		for (int slot = 0; slot < 11; slot++)
 		{
 			final VariationInstance augment = _player.getInventory().getPaperdollAugmentation(slot);
 			packet.writeD(augment != null ? augment.getOption1Id() : 0); // Confirmed

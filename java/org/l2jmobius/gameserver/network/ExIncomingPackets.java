@@ -89,11 +89,10 @@ import org.l2jmobius.gameserver.network.clientpackets.pledgeV2.RequestExPledgeLe
 import org.l2jmobius.gameserver.network.clientpackets.pledgeV2.RequestExPledgeMasteryInfo;
 import org.l2jmobius.gameserver.network.clientpackets.pledgeV2.RequestExPledgeMasteryReset;
 import org.l2jmobius.gameserver.network.clientpackets.pledgeV2.RequestExPledgeMasterySet;
+import org.l2jmobius.gameserver.network.clientpackets.pledgeV2.RequestExPledgeMissionInfo;
+import org.l2jmobius.gameserver.network.clientpackets.pledgeV2.RequestExPledgeMissionReward;
 import org.l2jmobius.gameserver.network.clientpackets.pledgeV2.RequestExPledgeSkillActivate;
 import org.l2jmobius.gameserver.network.clientpackets.pledgeV2.RequestExPledgeSkillInfo;
-import org.l2jmobius.gameserver.network.clientpackets.pledgebonus.RequestPledgeBonusOpen;
-import org.l2jmobius.gameserver.network.clientpackets.pledgebonus.RequestPledgeBonusReward;
-import org.l2jmobius.gameserver.network.clientpackets.pledgebonus.RequestPledgeBonusRewardList;
 import org.l2jmobius.gameserver.network.clientpackets.primeshop.RequestBRBuyProduct;
 import org.l2jmobius.gameserver.network.clientpackets.primeshop.RequestBRGamePoint;
 import org.l2jmobius.gameserver.network.clientpackets.primeshop.RequestBRPresentBuyProduct;
@@ -396,9 +395,9 @@ public enum ExIncomingPackets implements IIncomingPackets<GameClient>
 	REQUEST_TODO_LIST_HTML(0x11F, null, ConnectionState.IN_GAME),
 	REQUEST_ONE_DAY_REWARD_RECEIVE(0x120, null, ConnectionState.IN_GAME),
 	REQUEST_QUEUE_TICKET(0x121, null, ConnectionState.IN_GAME),
-	REQUEST_PLEDGE_BONUS_OPEN(0x122, RequestPledgeBonusOpen::new, ConnectionState.IN_GAME),
-	REQUEST_PLEDGE_BONUS_REWARD_LIST(0x123, RequestPledgeBonusRewardList::new, ConnectionState.IN_GAME),
-	REQUEST_PLEDGE_BONUS_REWARD(0x124, RequestPledgeBonusReward::new, ConnectionState.IN_GAME),
+	REQUEST_PLEDGE_BONUS_OPEN(0x122, null, ConnectionState.IN_GAME),
+	REQUEST_PLEDGE_BONUS_REWARD_LIST(0x123, null, ConnectionState.IN_GAME),
+	REQUEST_PLEDGE_BONUS_REWARD(0x124, null, ConnectionState.IN_GAME),
 	REQUEST_SSO_AUTHN_TOKEN(0x125, null, ConnectionState.IN_GAME),
 	REQUEST_QUEUE_TICKET_LOGIN(0x126, null, ConnectionState.IN_GAME),
 	REQUEST_BLOCK_MEMO_INFO(0x127, null, ConnectionState.IN_GAME),
@@ -428,8 +427,8 @@ public enum ExIncomingPackets implements IIncomingPackets<GameClient>
 	EX_PLEDGE_CONTRIBUTION_INFO(0x13F, null, ConnectionState.IN_GAME),
 	EX_PLEDGE_CONTRIBUTION_REWARD(0x140, null, ConnectionState.IN_GAME),
 	EX_PLEDGE_LEVEL_UP(0x141, RequestExPledgeLevelUp::new, ConnectionState.IN_GAME),
-	EX_PLEDGE_MISSION_INFO(0x142, null, ConnectionState.IN_GAME),
-	EX_PLEDGE_MISSION_REWARD(0x143, null, ConnectionState.IN_GAME),
+	EX_PLEDGE_MISSION_INFO(0x142, RequestExPledgeMissionInfo::new, ConnectionState.IN_GAME),
+	EX_PLEDGE_MISSION_REWARD(0x143, RequestExPledgeMissionReward::new, ConnectionState.IN_GAME),
 	EX_PLEDGE_MASTERY_INFO(0x144, RequestExPledgeMasteryInfo::new, ConnectionState.IN_GAME),
 	EX_PLEDGE_MASTERY_SET(0x145, RequestExPledgeMasterySet::new, ConnectionState.IN_GAME),
 	EX_PLEDGE_MASTERY_RESET(0x146, RequestExPledgeMasteryReset::new, ConnectionState.IN_GAME),
@@ -459,7 +458,7 @@ public enum ExIncomingPackets implements IIncomingPackets<GameClient>
 	REQUEST_BLOCK_LIST_FOR_AD(0x15E, null, ConnectionState.IN_GAME),
 	REQUEST_USER_BAN_INFO(0x15F, null, ConnectionState.IN_GAME),
 	EX_INTERACT_MODIFY(0x160, null, ConnectionState.IN_GAME), // 152
-	EX_TRY_ENCHANT_ARTIFACT(0x161, null, ConnectionState.IN_GAME), // 152
+	EX_TRY_ENCHANT_ARTIFACT(0x161, RequestExTryEnchantArtifact::new, ConnectionState.IN_GAME), // 152
 	EX_XIGN_CODE(0x162, null, ConnectionState.IN_GAME); // 152
 	
 	public static final ExIncomingPackets[] PACKET_ARRAY;

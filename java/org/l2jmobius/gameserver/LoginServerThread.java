@@ -626,6 +626,11 @@ public class LoginServerThread extends Thread
 	 */
 	private void sendPacket(BaseSendablePacket sl) throws IOException
 	{
+		if (_blowfish == null)
+		{
+			return;
+		}
+		
 		final byte[] data = sl.getContent();
 		NewCrypt.appendChecksum(data);
 		_blowfish.crypt(data, 0, data.length);
@@ -710,6 +715,11 @@ public class LoginServerThread extends Thread
 		catch (IOException e)
 		{
 		}
+	}
+	
+	public int getServerStatus()
+	{
+		return _status;
 	}
 	
 	/**

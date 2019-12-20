@@ -60,7 +60,7 @@ import org.l2jmobius.gameserver.taskmanager.AttackStanceTaskManager;
  * <ul>
  * <li>AttackableAI</li>
  * <li>DoorAI</li>
- * <li>L2PlayerAI</li>
+ * <li>PlayerAI</li>
  * <li>SummonAI</li>
  * </ul>
  */
@@ -923,7 +923,7 @@ public class CreatureAI extends AbstractAI
 	 * </ul>
 	 * <B><U> Example of use </U> :</B>
 	 * <ul>
-	 * <li>L2PLayerAI, SummonAI</li>
+	 * <li>PLayerAI, SummonAI</li>
 	 * </ul>
 	 * @param target The targeted WorldObject
 	 * @param offset The Interact area radius
@@ -942,19 +942,19 @@ public class CreatureAI extends AbstractAI
 			return false; // skill radius -1
 		}
 		
-		offset += _actor.getTemplate().getCollisionRadius();
+		int offsetWithCollision = offset + _actor.getTemplate().getCollisionRadius();
 		if (target.isCreature())
 		{
-			offset += ((Creature) target).getTemplate().getCollisionRadius();
+			offsetWithCollision += ((Creature) target).getTemplate().getCollisionRadius();
 		}
 		
-		if (!_actor.isInsideRadius2D(target, offset))
+		if (!_actor.isInsideRadius2D(target, offsetWithCollision))
 		{
 			// Caller should be Playable and thinkAttack/thinkCast/thinkInteract/thinkPickUp
 			if (isFollowing())
 			{
 				// allow larger hit range when the target is moving (check is run only once per second)
-				if (!_actor.isInsideRadius2D(target, offset + 100))
+				if (!_actor.isInsideRadius2D(target, offsetWithCollision + 100))
 				{
 					return true;
 				}
@@ -1030,7 +1030,7 @@ public class CreatureAI extends AbstractAI
 	 * </ul>
 	 * <B><U> Example of use </U> :</B>
 	 * <ul>
-	 * <li>L2PLayerAI, SummonAI</li>
+	 * <li>PLayerAI, SummonAI</li>
 	 * </ul>
 	 * @param target The targeted WorldObject
 	 * @return True if the target is lost or dead (false if fakedeath)
@@ -1063,7 +1063,7 @@ public class CreatureAI extends AbstractAI
 	 * </ul>
 	 * <B><U> Example of use </U> :</B>
 	 * <ul>
-	 * <li>L2PLayerAI, SummonAI</li>
+	 * <li>PLayerAI, SummonAI</li>
 	 * </ul>
 	 * @param target The targeted WorldObject
 	 * @return True if the target is lost

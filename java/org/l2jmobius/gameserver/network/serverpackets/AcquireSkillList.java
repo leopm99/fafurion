@@ -33,19 +33,27 @@ import org.l2jmobius.gameserver.network.OutgoingPackets;
  */
 public class AcquireSkillList implements IClientOutgoingPacket
 {
-	final PlayerInstance _player;
-	final List<SkillLearn> _learnable;
+	private PlayerInstance _player;
+	private List<SkillLearn> _learnable;
 	
 	public AcquireSkillList(PlayerInstance player)
 	{
-		_player = player;
-		_learnable = SkillTreesData.getInstance().getAvailableSkills(player, player.getClassId(), false, true, false);
-		_learnable.addAll(SkillTreesData.getInstance().getNextAvailableSkills(player, player.getClassId(), false, true, false));
+		if (!player.isSubclassLocked()) // Changing class.
+		{
+			_player = player;
+			_learnable = SkillTreesData.getInstance().getAvailableSkills(player, player.getClassId(), false, true, false);
+			_learnable.addAll(SkillTreesData.getInstance().getNextAvailableSkills(player, player.getClassId(), false, true, false));
+		}
 	}
 	
 	@Override
 	public boolean write(PacketWriter packet)
 	{
+		if (_player == null)
+		{
+			return false;
+		}
+		
 		OutgoingPackets.ACQUIRE_SKILL_LIST.writeId(packet);
 		
 		packet.writeH(_learnable.size());

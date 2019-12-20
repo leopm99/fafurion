@@ -289,12 +289,12 @@ public class AttackableAI extends CreatureAI
 		{
 			for (Skill buff : getActiveChar().getTemplate().getAISkills(AISkillScope.BUFF))
 			{
-				target = skillTargetReconsider(buff, true);
-				if (target != null)
+				final Creature buffTarget = skillTargetReconsider(buff, true);
+				if (buffTarget != null)
 				{
-					setTarget(target);
+					setTarget(buffTarget);
 					_actor.doCast(buff);
-					LOGGER.finer(this + " used buff skill " + buff + " on " + _actor);
+					setTarget(target);
 					break;
 				}
 			}
@@ -669,7 +669,7 @@ public class AttackableAI extends CreatureAI
 			}
 			
 			// Monster teleport to spawn
-			if (npc.isMonster() && (npc.getSpawn() != null) && !npc.isInInstance())
+			if (npc.isMonster() && (npc.getSpawn() != null) && !npc.isInInstance() && (npc.isInCombat() || World.getInstance().getVisibleObjects(npc, PlayerInstance.class).isEmpty()))
 			{
 				npc.teleToLocation(npc.getSpawn(), false);
 			}
@@ -1170,12 +1170,6 @@ public class AttackableAI extends CreatureAI
 	{
 		// Check if the actor can't use skills and if a thinking action isn't already in progress
 		if (_thinking || getActiveChar().isAllSkillsDisabled())
-		{
-			return;
-		}
-		
-		// Prevent thinking in non active regions.
-		if (!_actor.isInActiveRegion())
 		{
 			return;
 		}

@@ -63,7 +63,7 @@ public abstract class WorldObject extends ListenersContainer implements IIdentif
 	/** Y coordinate */
 	private volatile int _y = 0;
 	/** Z coordinate */
-	private volatile int _z = 0;
+	private volatile int _z = -10000;
 	/** Orientation */
 	private volatile int _heading = 0;
 	/** Instance id of object. 0 - Global */
@@ -140,7 +140,6 @@ public abstract class WorldObject extends ListenersContainer implements IIdentif
 	
 	public void onSpawn()
 	{
-		broadcastInfo(); // Tempfix for invisible spawns.
 	}
 	
 	@Override
@@ -289,6 +288,15 @@ public abstract class WorldObject extends ListenersContainer implements IIdentif
 	 * @return {@code true} if object is instance of DoorInstance, {@code false} otherwise
 	 */
 	public boolean isDoor()
+	{
+		return false;
+	}
+	
+	/**
+	 * Verify if object is instance of ArtefactInstance.
+	 * @return {@code true} if object is instance of ArtefactInstance, {@code false} otherwise
+	 */
+	public boolean isArtefact()
 	{
 		return false;
 	}
@@ -526,9 +534,13 @@ public abstract class WorldObject extends ListenersContainer implements IIdentif
 		return _worldRegion;
 	}
 	
-	public void setWorldRegion(WorldRegion value)
+	public void setWorldRegion(WorldRegion region)
 	{
-		_worldRegion = value;
+		if ((region == null) && (_worldRegion != null))
+		{
+			_worldRegion.removeVisibleObject(this);
+		}
+		_worldRegion = region;
 	}
 	
 	/**
@@ -810,12 +822,7 @@ public abstract class WorldObject extends ListenersContainer implements IIdentif
 	 */
 	public double calculateDirectionTo(ILocational target)
 	{
-		int heading = Util.calculateHeadingFrom(this, target) - _heading;
-		if (heading < 0)
-		{
-			heading += 65535;
-		}
-		return Util.convertHeadingToDegree(heading);
+		return Util.calculateAngleFrom(this, target);
 	}
 	
 	/**

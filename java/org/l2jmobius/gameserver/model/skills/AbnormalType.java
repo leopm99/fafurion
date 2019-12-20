@@ -242,6 +242,8 @@ public enum AbnormalType
 	SONG_WEAPON(-1), // TODO: need find proper name
 	HEAL_RESISTANCE(-1), // TODO: need find proper name
 	TRIAD(-1),
+	TALISMAN_SPECIAL(-1),
+	EXP_HERB(-1),
 	AURA_DEBUFF(-1),
 	AB_HAWK_EYE(0),
 	ALL_ATTACK_DOWN(1),
@@ -545,7 +547,11 @@ public enum AbnormalType
 	SYNERGY_SEER(590),
 	INSIDE_POSITION(593),
 	STEEL_MIND(596),
-	SIGEL_SHIELD(597);
+	SIGEL_SHIELD(597),
+	MAPHR_AURA(599),
+	SAYHA_AURA(600),
+	EVAS_DEBUFF(601),
+	RIGHT_SIDESTEP(602);
 	
 	private int _clientId;
 	

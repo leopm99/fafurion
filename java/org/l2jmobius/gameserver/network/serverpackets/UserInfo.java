@@ -35,20 +35,20 @@ import org.l2jmobius.gameserver.network.OutgoingPackets;
  */
 public class UserInfo extends AbstractMaskPacket<UserInfoType>
 {
-	private final PlayerInstance _player;
+	private PlayerInstance _player;
 	
-	private final int _relation;
-	private final int _runSpd;
-	private final int _walkSpd;
-	private final int _swimRunSpd;
-	private final int _swimWalkSpd;
+	private int _relation;
+	private int _runSpd;
+	private int _walkSpd;
+	private int _swimRunSpd;
+	private int _swimWalkSpd;
 	private final int _flRunSpd = 0;
 	private final int _flWalkSpd = 0;
-	private final int _flyRunSpd;
-	private final int _flyWalkSpd;
-	private final double _moveMultiplier;
-	private final int _enchantLevel;
-	private final int _armorEnchant;
+	private int _flyRunSpd;
+	private int _flyWalkSpd;
+	private double _moveMultiplier;
+	private int _enchantLevel;
+	private int _armorEnchant;
 	private String _title;
 	
 	private final byte[] _masks = new byte[]
@@ -67,28 +67,31 @@ public class UserInfo extends AbstractMaskPacket<UserInfoType>
 	
 	public UserInfo(PlayerInstance player, boolean addAll)
 	{
-		_player = player;
-		
-		_relation = calculateRelation(player);
-		_moveMultiplier = player.getMovementSpeedMultiplier();
-		_runSpd = (int) Math.round(player.getRunSpeed() / _moveMultiplier);
-		_walkSpd = (int) Math.round(player.getWalkSpeed() / _moveMultiplier);
-		_swimRunSpd = (int) Math.round(player.getSwimRunSpeed() / _moveMultiplier);
-		_swimWalkSpd = (int) Math.round(player.getSwimWalkSpeed() / _moveMultiplier);
-		_flyRunSpd = player.isFlying() ? _runSpd : 0;
-		_flyWalkSpd = player.isFlying() ? _walkSpd : 0;
-		_enchantLevel = player.getInventory().getWeaponEnchant();
-		_armorEnchant = player.getInventory().getArmorMinEnchant();
-		
-		_title = player.getTitle();
-		if (player.isGM() && player.isInvisible())
+		if (!player.isSubclassLocked()) // Changing class.
 		{
-			_title = "[Invisible]";
-		}
-		
-		if (addAll)
-		{
-			addComponentType(UserInfoType.values());
+			_player = player;
+			
+			_relation = calculateRelation(player);
+			_moveMultiplier = player.getMovementSpeedMultiplier();
+			_runSpd = (int) Math.round(player.getRunSpeed() / _moveMultiplier);
+			_walkSpd = (int) Math.round(player.getWalkSpeed() / _moveMultiplier);
+			_swimRunSpd = (int) Math.round(player.getSwimRunSpeed() / _moveMultiplier);
+			_swimWalkSpd = (int) Math.round(player.getSwimWalkSpeed() / _moveMultiplier);
+			_flyRunSpd = player.isFlying() ? _runSpd : 0;
+			_flyWalkSpd = player.isFlying() ? _walkSpd : 0;
+			_enchantLevel = player.getInventory().getWeaponEnchant();
+			_armorEnchant = player.getInventory().getArmorMinEnchant();
+			
+			_title = player.getTitle();
+			if (player.isGM() && player.isInvisible())
+			{
+				_title = "[Invisible]";
+			}
+			
+			if (addAll)
+			{
+				addComponentType(UserInfoType.values());
+			}
 		}
 	}
 	
@@ -129,6 +132,11 @@ public class UserInfo extends AbstractMaskPacket<UserInfoType>
 	@Override
 	public boolean write(PacketWriter packet)
 	{
+		if (_player == null)
+		{
+			return false;
+		}
+		
 		OutgoingPackets.USER_INFO.writeId(packet);
 		
 		packet.writeD(_player.getObjectId());
@@ -147,7 +155,7 @@ public class UserInfo extends AbstractMaskPacket<UserInfoType>
 			packet.writeString(_player.getName());
 			packet.writeC(_player.isGM() ? 0x01 : 0x00);
 			packet.writeC(_player.getRace().ordinal());
-			packet.writeC(_player.getAppearance().getSex() ? 0x01 : 0x00);
+			packet.writeC(_player.getAppearance().isFemale() ? 0x01 : 0x00);
 			packet.writeD(ClassId.getClassId(_player.getBaseTemplate().getClassId().getId()).getRootClassId().getId());
 			packet.writeD(_player.getClassId().getId());
 			packet.writeC(_player.getLevel());

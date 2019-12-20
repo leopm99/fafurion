@@ -596,7 +596,7 @@
 		<affectScope>SINGLE</affectScope>
 		<effects>
 			<effect name="PhysicalAttack">
-				<power>10000</power> <!-- Guessing -->
+				<power>10000</power> <!-- Fix: Retail Missed -->
 			</effect>
 		</effects>
 	</skill>
@@ -616,7 +616,7 @@
 		<affectScope>SINGLE</affectScope>
 		<effects>
 			<effect name="MagicalAttack">
-				<power>100</power> <!-- Guessing -->
+				<power>2000</power> <!-- Fix: Retail Missed -->
 			</effect>
 		</effects>
 	</skill>
@@ -629,60 +629,186 @@
 		<reuseDelay>1000</reuseDelay>
 		<effectPoint>-100</effectPoint>
 		<mpConsume>1</mpConsume>
+		<affectRange>300</affectRange>
+		<magicCriticalRate>5</magicCriticalRate>
+		<magicLvl>1</magicLvl>
+		<effectRange>400</effectRange>
+		<basicProperty>NONE</basicProperty>
+		<targetType>SELF</targetType>
+		<affectScope>POINT_BLANK</affectScope>
+		<affectObject>NOT_FRIEND</affectObject>
+		<effects>
+			<effect name="PhysicalAttack">
+				<power>10000</power> <!-- Fix: Retail Missed -->
+				<overHit>true</overHit>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32472" toLevel="1" name="Tabeth Poison">
 		<!-- Poisoned by spores, receives poison damage over time for 10 sec. -->
 		<icon>icon.skill4035</icon>
-		<operateType>A1</operateType>
+		<operateType>A2</operateType>
 		<isDebuff>true</isDebuff>
 		<castRange>40</castRange>
 		<hitTime>2000</hitTime>
 		<coolTime>500</coolTime>
 		<reuseDelay>500</reuseDelay>
 		<effectPoint>-100</effectPoint>
+		<abnormalLvl>1</abnormalLvl>
+		<abnormalTime>10</abnormalTime>
+		<abnormalType>POISON</abnormalType>
+		<abnormalVisualEffect>DOT_POISON</abnormalVisualEffect>
+		<activateRate>200</activateRate>
+		<basicProperty>PHYSICAL</basicProperty>
+		<effectRange>400</effectRange>
+		<magicLvl>1</magicLvl>
+		<magicCriticalRate>5</magicCriticalRate>
+		<trait>POISON</trait>
+		<targetType>ENEMY_ONLY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="DamOverTime">
+				<power>2000</power> <!-- Fix: Retail Missed -->
+				<ticks>5</ticks>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32473" toLevel="3" name="Tabeth Mass Poison">
 		<!-- Poisoned by spores, receives poison damage over time for $s1. Damage increases if attacked again with poison before the effect is removed. -->
 		<icon>icon.skill4035</icon>
-		<operateType>A1</operateType>
+		<operateType>A2</operateType>
 		<isDebuff>true</isDebuff>
 		<hitTime>2000</hitTime>
 		<coolTime>500</coolTime>
 		<reuseDelay>10000</reuseDelay>
 		<effectPoint>-100</effectPoint>
+		<abnormalLvl>1</abnormalLvl>
+		<abnormalTime>10</abnormalTime>
+		<abnormalType>FATAL_POISON</abnormalType>
+		<abnormalVisualEffect>DOT_POISON</abnormalVisualEffect>
+		<activateRate>200</activateRate>
+		<basicProperty>PHYSICAL</basicProperty>
+		<effectRange>400</effectRange>
+		<magicLvl>1</magicLvl>
+		<magicCriticalRate>5</magicCriticalRate>
+		<trait>POISON</trait>
+		<targetType>ENEMY_ONLY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="DamOverTime">
+				<power>
+					<value level="1">1000</value> <!-- Fix: Retail Missed -->
+					<value level="2">1500</value> <!-- Fix: Retail Missed -->
+					<value level="3">2000</value> <!-- Fix: Retail Missed -->			
+				</power>
+				<ticks>5</ticks>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32474" toLevel="1" name="Tabeth Stun">
 		<!-- Deals physical damage to the enemy and stuns them for 3 sec. -->
 		<icon>icon.skill10554</icon>
-		<operateType>A1</operateType>
+		<operateType>A2</operateType>
 		<isDebuff>true</isDebuff>
 		<castRange>40</castRange>
 		<hitTime>1500</hitTime>
 		<coolTime>500</coolTime>
 		<reuseDelay>10000</reuseDelay>
 		<effectPoint>-100</effectPoint>
+		<isDebuff>true</isDebuff>
+		<abnormalLvl>1</abnormalLvl>
+		<abnormalTime>3</abnormalTime>
+		<abnormalType>STUN</abnormalType>
+		<abnormalVisualEffect>STUN</abnormalVisualEffect>
+		<activateRate>200</activateRate>
+		<basicProperty>PHYSICAL</basicProperty>
+		<effectRange>300</effectRange>
+		<magicLvl>1</magicLvl>
+		<magicCriticalRate>5</magicCriticalRate>
+		<trait>SHOCK</trait>
+		<targetType>ENEMY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="PhysicalAttack">
+				<power>10000</power> <!-- Fix: Retail Missed -->
+				<overHit>true</overHit>
+			</effect>
+			<effect name="BlockActions">
+				<allowedSkills>10279;10517;10025;10776;11770;1904;11264;11093;13314;1912</allowedSkills>
+			</effect>
+			<effect name="TargetCancel">
+				<chance>40</chance>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32475" toLevel="1" name="Tabeth Fear">
 		<!-- Inflicts Fear on the enemy, making them flee without taking any actions for 5 sec. -->
 		<icon>icon.skill1169</icon>
-		<operateType>A1</operateType>
+		<operateType>A2</operateType>
 		<isDebuff>true</isDebuff>
 		<castRange>1500</castRange>
 		<hitTime>1500</hitTime>
 		<coolTime>500</coolTime>
 		<reuseDelay>10000</reuseDelay>
 		<effectPoint>-100</effectPoint>
+		<abnormalLvl>1</abnormalLvl>
+		<abnormalTime>5</abnormalTime>
+		<abnormalType>TURN_FLEE</abnormalType>
+		<abnormalVisualEffect>TURN_FLEE</abnormalVisualEffect>
+		<activateRate>200</activateRate>
+		<basicProperty>MAGIC</basicProperty>
+		<effectRange>1100</effectRange>
+		<isMagic>1</isMagic> <!-- Magic Skill -->
+		<magicLvl>1</magicLvl>
+		<magicCriticalRate>5</magicCriticalRate>
+		<trait>DERANGEMENT</trait>
+		<targetType>ENEMY_ONLY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="BlockControl" />
+			<effect name="Fear" />
+		</effects>
 	</skill>
 	<skill id="32476" toLevel="1" name="Tabeth Mass Airbind">
 		<!-- Bind the enemy in mid-air, dealing damage over time for 5 sec. -->
 		<icon>icon.skill11052</icon>
-		<operateType>A1</operateType>
+		<operateType>A2</operateType>
 		<isDebuff>true</isDebuff>
 		<hitTime>2000</hitTime>
 		<coolTime>500</coolTime>
 		<reuseDelay>10000</reuseDelay>
 		<effectPoint>-700</effectPoint>
 		<mpConsume>1</mpConsume>
+		<abnormalLvl>1</abnormalLvl>
+		<abnormalTime>10</abnormalTime>
+		<affectLimit>5-10</affectLimit>
+		<abnormalType>AIRBIND</abnormalType>
+		<abnormalVisualEffect>AIRBIND</abnormalVisualEffect>
+		<activateRate>200</activateRate>
+		<basicProperty>NONE</basicProperty>
+		<trait>AIRBIND</trait>
+		<fanRange>0;0;600;60</fanRange>
+		<effectRange>1100</effectRange>
+		<abnormalResists>STUN;TURN_FLEE</abnormalResists>
+		<magicCriticalRate>5</magicCriticalRate>
+		<magicLvl>1</magicLvl>
+		<targetType>ENEMY</targetType>
+		<affectScope>FAN</affectScope>
+		<affectObject>NOT_FRIEND</affectObject>
+		<effects>
+			<effect name="AirBind" />
+			<effect name="BlockActions" />
+			<effect name="DefenceTrait">
+				<SLEEP>100</SLEEP>
+				<CHANGEBODY>100</CHANGEBODY>
+				<AIRBIND>100</AIRBIND>
+				<KNOCKDOWN>100</KNOCKDOWN>
+				<HOLD>100</HOLD>
+				<SHOCK>100</SHOCK>
+				<DERANGEMENT>100</DERANGEMENT>
+				<KNOCKBACK>100</KNOCKBACK>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32477" toLevel="1" name="Tabeth Savage">
 		<!-- The energy of the Sea of Spores has increased P. Atk./ M. Atk./ Atk. Spd./ Casting Spd. for 1 min. -->
@@ -691,6 +817,33 @@
 		<hitTime>1000</hitTime>
 		<coolTime>500</coolTime>
 		<reuseDelay>30000</reuseDelay>
+		<abnormalLvl>1</abnormalLvl>
+		<abnormalTime>60</abnormalTime>
+		<abnormalType>RACE_ORC1</abnormalType>
+		<isMagic>1</isMagic> <!-- Magic Skill -->
+		<basicProperty>NONE</basicProperty>
+		<magicCriticalRate>5</magicCriticalRate>
+		<magicLvl>1</magicLvl>
+		<targetType>SELF</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="PAtk">
+				<amount>10</amount>
+				<mode>PER</mode>
+			</effect>
+			<effect name="MAtk">
+				<amount>20</amount>
+				<mode>PER</mode>
+			</effect>
+			<effect name="PhysicalAttackSpeed">
+				<amount>10</amount>
+				<mode>PER</mode>
+			</effect>
+			<effect name="MagicalAttackSpeed">
+				<amount>10</amount>
+				<mode>PER</mode>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32478" toLevel="1" name="Scale Strike">
 		<!-- Key Sea of Spores Monsters' Powerful Single Target Physical Attack Skill -->
@@ -699,6 +852,18 @@
 		<hitTime>1500</hitTime>
 		<coolTime>500</coolTime>
 		<effectPoint>-100</effectPoint>
+		<basicProperty>PHYSICAL</basicProperty>
+		<effectRange>400</effectRange>
+		<magicLvl>1</magicLvl>
+		<magicCriticalRate>5</magicCriticalRate>
+		<targetType>ENEMY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="PhysicalAttack">
+				<power>10000</power> <!-- Fix: Retail Missed -->
+				<overHit>true</overHit>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32479" toLevel="1" name="Scale Slasher">
 		<!-- Key Sea of Spores Monsters' Physical AoE Skill (point_blank) -->
@@ -708,17 +873,54 @@
 		<coolTime>500</coolTime>
 		<reuseDelay>10000</reuseDelay>
 		<effectPoint>-100</effectPoint>
+		<basicProperty>PHYSICAL</basicProperty>
 		<mpConsume>1</mpConsume>
+		<affectRange>300</affectRange>
+		<magicCriticalRate>5</magicCriticalRate>
+		<magicLvl>1</magicLvl>
+		<effectRange>400</effectRange>
+		<basicProperty>NONE</basicProperty>
+		<targetType>SELF</targetType>
+		<affectScope>POINT_BLANK</affectScope>
+		<affectObject>NOT_FRIEND</affectObject>
+		<effects>
+			<effect name="PhysicalAttack">
+				<power>10000</power> <!-- Fix: Retail Missed -->
+				<overHit>true</overHit>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32480" toLevel="1" name="Scale Floor">
 		<!-- Decreases P. Atk./ M. Atk./ Speed of nearby enemies by 10%. -->
 		<icon>icon.skill32498</icon>
-		<operateType>A1</operateType>
+		<operateType>A2</operateType>
 		<isDebuff>true</isDebuff>
 		<hitTime>1000</hitTime>
 		<coolTime>500</coolTime>
 		<reuseDelay>10000</reuseDelay>
 		<effectPoint>-100</effectPoint>
+		<abnormalLvl>1</abnormalLvl>
+		<abnormalTime>10</abnormalTime>
+		<abnormalType>REAL_TARGET</abnormalType>
+		<magicLvl>1</magicLvl>
+		<basicProperty>NONE</basicProperty>
+		<magicCriticalRate>5</magicCriticalRate>
+		<targetType>ENEMY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="PAtk">
+				<amount>-10</amount>
+				<mode>PER</mode>
+			</effect>
+			<effect name="MAtk">
+				<amount>-10</amount>
+				<mode>PER</mode>
+			</effect>
+			<effect name="Speed">
+				<amount>-10</amount>
+				<mode>PER</mode>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32481" toLevel="1" name="Absorb Energy of the Sea of Spores">
 		<operateType>A1</operateType>
@@ -763,23 +965,33 @@
 		<coolTime>500</coolTime>
 		<reuseDelay>1200</reuseDelay>
 		<effectPoint>-100</effectPoint>
+		<hitCancelTime>0</hitCancelTime>
+		<effectRange>1100</effectRange>
+		<targetType>ENEMY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="PhysicalAttack">
+				<power>61189</power>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32487" toLevel="1" name="Orfen Fatal Slasher">
 		<!-- Orfen's Powerful Physical Range Attack -->
 		<operateType>A1</operateType>
 		<castRange>300</castRange>
 		<reuseDelay>2000</reuseDelay>
-		<affectLimit>40-80</affectLimit>
-		<affectRange>600</affectRange>
+		<affectLimit>200-200</affectLimit>
 		<coolTime>500</coolTime>
 		<effectPoint>-100</effectPoint>
+		<hitCancelTime>0</hitCancelTime>
 		<hitTime>3000</hitTime>
+		<affectRange>1000</affectRange>
 		<targetType>SELF</targetType>
 		<affectScope>POINT_BLANK</affectScope>
 		<affectObject>NOT_FRIEND</affectObject>
 		<effects>
 			<effect name="PhysicalAttack">
-				<power>34255</power>
+				<power>61189</power>
 			</effect>
 		</effects>
 	</skill>
@@ -792,6 +1004,15 @@
 		<coolTime>500</coolTime>
 		<reuseDelay>1200</reuseDelay>
 		<effectPoint>-100</effectPoint>
+		<hitCancelTime>0</hitCancelTime>
+		<effectRange>1100</effectRange>
+		<targetType>ENEMY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="MagicalAttack">
+				<power>723</power>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32489" toLevel="1" name="Orfen Fury Energy Wave">
 		<!-- Momentarily immobilized due to Orfen's attack. -->
@@ -802,69 +1023,126 @@
 		<coolTime>500</coolTime>
 		<reuseDelay>5000</reuseDelay>
 		<effectPoint>-100</effectPoint>
+		<hitCancelTime>0</hitCancelTime>
+		<affectRange>1300</affectRange>
+		<isDebuff>true</isDebuff>
+		<activateRate>100</activateRate>
+		<affectLimit>200-200</affectLimit>
+		<targetType>SELF</targetType>
+		<affectScope>POINT_BLANK</affectScope>
+		<affectObject>NOT_FRIEND</affectObject>
+		<effects>
+			<effect name="PhysicalAttack">
+				<power>61189</power>
+			</effect>
+			<effect name="Root" />
+			<effect name="BlockActions" />
+			<effect name="CallSkill">
+				<skillId>32490</skillId> <!-- Yoke of Orfen -->
+				<skillLevel>1</skillLevel>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32490" toLevel="1" name="Yoke of Orfen">
 		<!-- Immobilized for 5 sec. due to Orfen's attack. -->
 		<icon>icon.skill32490</icon>
-		<operateType>A1</operateType>
+		<operateType>A2</operateType>
+		<abnormalLvl>1</abnormalLvl>
+		<abnormalTime>5</abnormalTime>
 		<isMagic>1</isMagic> <!-- Magic Skill -->
 		<isDebuff>true</isDebuff>
 		<castRange>1300</castRange>
 		<coolTime>500</coolTime>
 		<effectPoint>-100</effectPoint>
+		<activateRate>100</activateRate>
+		<hitCancelTime>0</hitCancelTime>
+		<affectRange>1100</affectRange>
+		<effectRange>2100</effectRange>
+		<trait>HOLD</trait>
+		<targetType>ENEMY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="Root" />
+			<effect name="BlockActions" />
+		</effects>
 	</skill>
 	<skill id="32491" toLevel="1" name="Orfen Blow Up">
 		<!-- Sent flying after receiving damage from Orfen's attack. -->
 		<icon>icon.skill10263</icon>
-		<operateType>A1</operateType>
+		<operateType>A2</operateType>
+		<abnormalLvl>1</abnormalLvl>
+		<abnormalTime>3</abnormalTime>
 		<isMagic>1</isMagic> <!-- Magic Skill -->
 		<isDebuff>true</isDebuff>
 		<hitTime>3000</hitTime>
 		<coolTime>500</coolTime>
 		<reuseDelay>10000</reuseDelay>
 		<effectPoint>-100</effectPoint>
+		<hitCancelTime>0</hitCancelTime>
+		<abnormalType>STUN</abnormalType>
+		<abnormalVisualEffect>KNOCKDOWN</abnormalVisualEffect>
+		<affectLimit>200-200</affectLimit>
+		<activateRate>100</activateRate>
+		<affectRange>1800</affectRange>
+		<isDebuff>true</isDebuff>
+		<trait>KNOCKBACK</trait>
+		<targetType>SELF</targetType>
+		<affectScope>POINT_BLANK</affectScope>
+		<affectObject>NOT_FRIEND</affectObject>
+		<effects>
+			<effect name="PhysicalAttack">
+				<power>61189</power>
+			</effect>
+			<effect name="KnockBack">
+				<distance>200</distance>
+				<speed>400</speed>
+				<knockDown>true</knockDown>
+			</effect>
+			<effect name="BlockActions" />
+		</effects>
 	</skill>
 	<skill id="32492" toLevel="1" name="Orfen Fatal Stamp">
 		<!-- Movement is restricted by Orfen. -->
 		<icon>icon.skill10266</icon>
+		<operateType>A2</operateType>
 		<abnormalLvl>1</abnormalLvl>
-		<abnormalTime>30</abnormalTime>
+		<abnormalTime>15</abnormalTime>
 		<abnormalType>ROOT_MAGICALLY</abnormalType>
 		<abnormalVisualEffect>ROOT</abnormalVisualEffect>
-		<affectLimit>40-80</affectLimit>
-		<affectRange>600</affectRange>
+		<affectLimit>200-200</affectLimit>
 		<coolTime>500</coolTime>
 		<effectPoint>-100</effectPoint>
+		<hitCancelTime>0</hitCancelTime>
+		<activateRate>100</activateRate>
 		<hitTime>5000</hitTime>
 		<isDebuff>true</isDebuff>
-		<operateType>A2</operateType>
 		<castRange>700</castRange>
+		<affectRange>1000</affectRange>
 		<reuseDelay>10000</reuseDelay>
 		<trait>HOLD</trait>
 		<targetType>SELF</targetType>
 		<affectScope>POINT_BLANK</affectScope>
 		<affectObject>NOT_FRIEND</affectObject>
 		<effects>
-			<effect name="PhysicalAttack">
-				<power>34255</power>
-			</effect>
 			<effect name="Root" />
 		</effects>
 	</skill>
 	<skill id="32493" toLevel="1" name="Orfen Raise Spore">
 		<!-- Attacking abilities have been crippled by spores stirred up by Orfen. Decreases Atk. Spd./ Casting Spd. by 20%. -->
 		<icon>icon.skill1072</icon>
+		<operateType>A2</operateType>
 		<abnormalLvl>1</abnormalLvl>
-		<abnormalTime>30</abnormalTime>
+		<abnormalTime>15</abnormalTime>
 		<abnormalType>POISON</abnormalType>
 		<abnormalVisualEffect>DOT_POISON</abnormalVisualEffect>
-		<affectLimit>40-80</affectLimit>
-		<affectRange>600</affectRange>
+		<affectLimit>200-200</affectLimit>
 		<coolTime>500</coolTime>
 		<effectPoint>-100</effectPoint>
+		<hitCancelTime>0</hitCancelTime>
+		<activateRate>100</activateRate>
 		<hitTime>5000</hitTime>
 		<isDebuff>true</isDebuff>
-		<operateType>A2</operateType>
+		<affectRange>100</affectRange>
 		<reuseDelay>10000</reuseDelay>
 		<trait>POISON</trait>
 		<targetType>SELF</targetType>
@@ -872,37 +1150,90 @@
 		<affectObject>NOT_FRIEND</affectObject>
 		<effects>
 			<effect name="MagicalAttack">
-				<power>157</power>
+				<power>723</power>
 			</effect>
 			<effect name="DamOverTime">
 				<power>512</power>
 				<ticks>1</ticks>
 			</effect>
+			<effect name="PhysicalAttackSpeed">
+				<amount>-20</amount>
+				<mode>PER</mode>
+			</effect>
 			<effect name="MagicalAttackSpeed">
 				<amount>-20</amount>
 				<mode>PER</mode>
 			</effect>
-			<effect name="PhysicalAttackSpeed">
-				<amount>-20</amount>
-				<mode>PER</mode>
+			<effect name="CallSkill">
+				<skillId>32494</skillId> <!-- Hallucinating Dust -->
+				<skillLevel>1</skillLevel>
 			</effect>
 		</effects>
 	</skill>
 	<skill id="32494" toLevel="1" name="Hallucinating Dust">
 		<!-- Attacking abilities have been crippled by spores stirred up by Orfen. Decreases Atk. Spd./ Casting Spd. by 500, Speed by 100. -->
 		<icon>icon.skill0412</icon>
-		<operateType>A1</operateType>
+		<operateType>A2</operateType>
+		<abnormalLvl>1</abnormalLvl>
+		<abnormalTime>15</abnormalTime>
 		<isDebuff>true</isDebuff>
 		<coolTime>500</coolTime>
 		<effectPoint>-100</effectPoint>
+		<activateRate>100</activateRate>
+		<targetType>ENEMY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="PhysicalAttackSpeed">
+				<amount>-500</amount>
+				<mode>DIFF</mode>
+			</effect>
+			<effect name="MagicalAttackSpeed">
+				<amount>-500</amount>
+				<mode>DIFF</mode>
+			</effect>
+			<effect name="Speed">
+				<amount>-100</amount>
+				<mode>DIFF</mode>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32495" toLevel="1" name="Orfen's Rage">
 		<!-- Orfen is enraged, significantly increasing her P. Atk./ M. Atk./ P. Def./ M. Def./ Atk. Spd./ Casting Spd. -->
 		<icon>icon.skill32495</icon>
-		<operateType>A1</operateType>
+		<operateType>A2</operateType>
+		<abnormalLvl>1</abnormalLvl>
+		<abnormalTime>30</abnormalTime>
 		<castRange>1100</castRange>
 		<coolTime>500</coolTime>
 		<reuseDelay>5000</reuseDelay>
+		<targetType>SELF</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="PAtk">
+				<amount>50</amount>
+				<mode>PER</mode>
+			</effect>
+			<effect name="MAtk">
+				<amount>50</amount>
+				<mode>PER</mode>
+			</effect>
+			<effect name="PhysicalDefence">
+				<amount>50</amount>
+				<mode>PER</mode>
+			</effect>
+			<effect name="MagicalDefence">
+				<amount>50</amount>
+				<mode>PER</mode>
+			</effect>
+			<effect name="PhysicalAttackSpeed">
+				<amount>50</amount>
+				<mode>PER</mode>
+			</effect>
+			<effect name="MagicalAttackSpeed">
+				<amount>50</amount>
+				<mode>PER</mode>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32496" toLevel="1" name="Orfen's Rage">
 		<!-- Presentation skill to show that Orfen is enraged and her Atk. Spd./ Casting Spd. and P. Atk./ M. Atk. have increased significantly. -->
@@ -910,6 +1241,15 @@
 		<hitTime>3000</hitTime>
 		<coolTime>500</coolTime>
 		<reuseDelay>5000</reuseDelay>
+		<hitCancelTime>0</hitCancelTime>
+		<targetType>SELF</targetType>
+		<affectScope>SINGLE</affectScope>
+		<effects>
+			<effect name="CallSkill">
+				<skillId>32495</skillId> <!-- Orfen's Rage -->
+				<skillLevel>1</skillLevel>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32497" toLevel="2" name="Scale Fatal Slasher">
 		<!-- Powerful Physical Attack within Range -->
